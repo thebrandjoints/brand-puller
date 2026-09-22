@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Puller | Exhibition Fabrication & BTL Activations</title>
-    <meta name="description" content="Brand Puller (Private) Limited — Karachi-based fabrication, BTL activations, structural booth design, and retail marketing agency, established 2011.">
-    <meta name="theme-color" content="#FAFAFA">
+    <title>Brand Puller | Exhibition Stand Fabrication, BTL Activations & Retail Execution</title>
+    <meta name="description" content="Brand Puller (Private) Limited — Karachi-based structural fabrication, exhibition stall design, BTL activations, and retail marketing execution agency, established 2011.">
+    <meta name="theme-color" content="#0D0D0D">
 
-    <!-- Open Graph / Meta Context -->
-    <meta property="og:title" content="Brand Puller | Experiential Marketing & Fabrication">
-    <meta property="og:description" content="Karachi-based fabrication, BTL activations, structural booth design, and retail marketing agency.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Brand Puller | Structural Fabrication & BTL Activations">
+    <meta property="og:description" content="Engineering high-concept brand ideas into physical reality across Pakistan since 2011. Bespoke exhibition stands, BTL activations, and retail execution.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png">
 
-    <!-- Fonts -->
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,28 +25,25 @@
             theme: {
                 extend: {
                     colors: {
-                        swiss: {
+                        brand: {
                             bg: '#FAFAFA',
                             red: '#ED1C24',
-                            redHover: '#C4131A',
+                            redDark: '#C4131A',
                             black: '#0D0D0D',
                             dark: '#1C1C1C',
-                            gray: '#E2E8F0',
-                            light: '#F8FAFC',
-                            white: '#FFFFFF',
-                            // Expanded Complementary Contrast Colors
-                            navy: '#0F172A',
-                            slate: '#334155',
-                            amber: '#D97706',
-                            amberLight: '#FEF3C7',
-                            crimson: '#991B1B',
-                            teal: '#0F766E'
+                            grayBorder: '#E2E8F0',
+                            slate: '#475569',
+                            lightGray: '#F1F5F9',
+                            white: '#FFFFFF'
                         }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
                         display: ['Plus Jakarta Sans', 'Helvetica Neue', 'Arial', 'sans-serif'],
                     },
+                    screens: {
+                        'xs': '375px',
+                    }
                 }
             }
         }
@@ -61,7 +58,13 @@
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
 
     <style>
-        /* Minimalist Scrollbar */
+        /* Universal Focus Visible Styling */
+        :focus-visible {
+            outline: 3px solid #ED1C24 !important;
+            outline-offset: 4px !important;
+        }
+
+        /* Scrollbar Styling */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #FAFAFA; }
         ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
@@ -72,24 +75,7 @@
         .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
         .lenis.lenis-stopped { overflow: hidden; }
 
-        /* Custom Modal Inner Scrollbar */
-        .modal-scrollable {
-            overflow-y: auto !important;
-            max-height: calc(85vh - 2rem);
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Editorial Hairline Grid Setup */
-        .grid-lines {
-            background-color: #E2E8F0;
-            gap: 1px;
-        }
-        .grid-lines > * {
-            background-color: #FFFFFF;
-        }
-
-        /* Marquee Styles */
+        /* Marquee Setup */
         .marquee-container {
             display: flex;
             overflow: hidden;
@@ -102,9 +88,10 @@
             gap: 3.5rem;
             padding-right: 3.5rem;
             min-width: 100%;
-            animation: marquee 30s linear infinite;
+            animation: marquee 35s linear infinite;
         }
-        .marquee-container:hover .marquee-wrapper {
+        .marquee-container:hover .marquee-wrapper,
+        .marquee-container:focus-within .marquee-wrapper {
             animation-play-state: paused;
         }
         @keyframes marquee {
@@ -112,46 +99,22 @@
             100% { transform: translate3d(-100%, 0, 0); }
         }
 
-        /* Animation Classes */
-        .reveal-up { opacity: 0; transform: translateY(30px); }
-        .reveal-fade { opacity: 0; }
-        @media (prefers-reduced-motion: reduce) {
-            .reveal-up, .reveal-fade { opacity: 1 !important; transform: none !important; }
+        /* Responsive Hero Heading Clamp */
+        .hero-title {
+            font-size: clamp(2.5rem, 7vw, 6.5rem);
+            line-height: 0.92;
         }
 
-        /* Dropdown Panel */
-        .dropdown-panel {
-            max-height: 0;
-            opacity: 0;
-            visibility: hidden;
-            overflow: hidden;
-            transition: max-height 0.4s ease, opacity 0.3s ease, visibility 0.4s;
-        }
-        .has-dropdown:hover .dropdown-panel,
-        .has-dropdown:focus-within .dropdown-panel,
-        .dropdown-panel.open {
-            max-height: 300px;
-            opacity: 1;
-            visibility: visible;
+        /* Touch Devices Full Color Images */
+        @media (pointer: coarse) {
+            .touch-full-color img {
+                filter: none !important;
+                opacity: 1 !important;
+            }
         }
 
-        /* Form Inputs */
-        .form-input {
-            width: 100%; 
-            background: transparent; 
-            border: none;
-            border-bottom: 2px solid #0D0D0D; 
-            padding: 0.85rem 0; 
-            font-size: 1rem; 
-            font-weight: 600;
-            color: #0D0D0D; 
-            border-radius: 0;
-            transition: border-color 0.3s ease;
-        }
-        .form-input::placeholder { color: #64748B; font-weight: 500; }
-        .form-input:focus { border-bottom-color: #ED1C24; outline: none; }
-        
-        .btn-swiss {
+        /* Buttons & Form Inputs */
+        .btn-brand-primary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -161,1132 +124,1139 @@
             text-transform: uppercase;
             letter-spacing: 0.08em;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            min-height: 48px;
+            padding: 0.75rem 1.75rem;
         }
-        .btn-swiss:hover {
+        .btn-brand-primary:hover {
             background-color: #ED1C24;
             color: #FFFFFF;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(237,28,36,0.25);
         }
-        .btn-outline {
+
+        .btn-brand-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: transparent;
             color: #0D0D0D;
             border: 2px solid #0D0D0D;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.25s ease;
+            min-height: 48px;
+            padding: 0.75rem 1.75rem;
         }
-        .btn-outline:hover {
+        .btn-brand-outline:hover {
             background-color: #0D0D0D;
             color: #FFFFFF;
         }
 
-        .min-touch-target { min-width: 44px; min-height: 44px; }
-        .grayscale-hover img { filter: grayscale(100%); opacity: 0.7; transition: all 0.3s ease; }
-        .grayscale-hover img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+        .form-input-field {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #0D0D0D;
+            padding: 0.75rem 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #0D0D0D;
+            border-radius: 0;
+            transition: border-color 0.3s ease;
+        }
+        .form-input-field:focus {
+            border-bottom-color: #ED1C24;
+            outline: none;
+        }
+
+        /* Modal Scrollability & Focus Trap Helpers */
+        .modal-scroll-area {
+            max-height: calc(85vh - 4rem);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+
+        /* Comprehensive Reduced Motion Handling */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .marquee-wrapper {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
-<body class="bg-swiss-bg text-swiss-black font-sans antialiased selection:bg-swiss-red selection:text-white overflow-x-hidden">
+<body class="bg-brand-bg text-brand-black font-sans antialiased selection:bg-brand-red selection:text-white overflow-x-hidden">
 
-    <!-- WHATSAPP WIDGET -->
-    <a href="https://wa.me/923032366882?text=Hi%20Brand%20Puller%20team,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-[90] bg-swiss-black text-white p-4 rounded-full shadow-2xl hover:bg-swiss-red transition-all duration-300 transform hover:scale-110 min-touch-target flex items-center justify-center">
-        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <!-- FLOATING WHATSAPP ACTION BUTTON -->
+    <a href="https://wa.me/923032366882?text=Hi%20Brand%20Puller%20team,%20I%27d%20like%20to%20discuss%20a%20project" 
+       target="_blank" 
+       rel="noopener" 
+       aria-label="Chat directly with Brand Puller on WhatsApp" 
+       class="fixed bottom-6 right-6 z-40 bg-[#25d366] text-white p-4 rounded-full shadow-2xl hover:bg-[#1ebe59] transition-all duration-300 transform hover:scale-105 min-h-[56px] min-w-[56px] flex items-center justify-center">
+        <!-- Custom WhatsApp Icon -->
+        <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.22 5.22 0 00-.571-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
     </a>
 
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-swiss-gray bg-white/95 backdrop-blur-md h-20" id="mainHeader">
-        <div class="w-full px-6 md:px-12 h-full flex items-center justify-between max-w-[1600px] mx-auto">
-            <a href="/" class="flex items-center min-touch-target" aria-label="Brand Puller home">
-                <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller logo" width="160" height="42" class="h-7 w-auto object-contain mix-blend-multiply">
+    <!-- FIXED ACCESSIBLE HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-grayBorder h-20 transition-transform duration-300" id="siteHeader">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 h-full flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="/" class="flex items-center py-2 min-h-[44px]" aria-label="Brand Puller Home">
+                <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller (Private) Limited logo" width="160" height="42" class="h-7 w-auto object-contain mix-blend-multiply">
             </a>
 
-            <nav class="hidden md:flex items-center gap-10 font-sans font-bold text-xs uppercase tracking-widest text-swiss-dark">
-                <div class="relative has-dropdown py-2 h-full flex items-center">
-                    <button type="button" class="flex items-center gap-1.5 hover:text-swiss-red transition-colors min-touch-target" id="dropdownToggleBtn" onclick="toggleDesktopDropdown(event)">
-                        Services <i data-lucide="chevron-down" class="w-4 h-4 text-swiss-red"></i>
-                    </button>
-                    <div id="desktopDropdownPanel" class="dropdown-panel absolute left-0 top-[60px] w-60 border border-swiss-gray bg-white shadow-2xl rounded-sm">
-                        <div class="flex flex-col">
-                            <a href="#services" onclick="goToService(event, 'fabrication')" class="px-6 py-4 text-xs font-bold hover:bg-swiss-slateLight hover:text-swiss-red transition-colors border-b border-swiss-gray">
-                                Structural Fabrication
-                            </a>
-                            <a href="#services" onclick="goToService(event, 'btl')" class="px-6 py-4 text-xs font-bold hover:bg-swiss-slateLight hover:text-swiss-red transition-colors border-b border-swiss-gray">
-                                BTL Activations
-                            </a>
-                            <a href="#services" onclick="goToService(event, 'marketing')" class="px-6 py-4 text-xs font-bold hover:bg-swiss-slateLight hover:text-swiss-red transition-colors">
-                                Retail Marketing
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <a href="#about" class="hover:text-swiss-red transition-colors">About</a>
-                <a href="#portfolio" class="hover:text-swiss-red transition-colors">Portfolio</a>
-                <a href="#contact" class="hover:text-swiss-red transition-colors">Contact</a>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 font-sans font-extrabold text-xs uppercase tracking-widest text-brand-dark" aria-label="Main Navigation">
+                <a href="#CAPABILITIES" class="hover:text-brand-red transition-colors py-2 min-h-[44px] flex items-center">Capabilities</a>
+                <a href="#portfolio" class="hover:text-brand-red transition-colors py-2 min-h-[44px] flex items-center">Selected Work</a>
+                <a href="#process" class="hover:text-brand-red transition-colors py-2 min-h-[44px] flex items-center">Process</a>
+                <a href="#about" class="hover:text-brand-red transition-colors py-2 min-h-[44px] flex items-center">About</a>
+                <a href="#contact" class="hover:text-brand-red transition-colors py-2 min-h-[44px] flex items-center">Contact</a>
             </nav>
 
-            <div class="hidden sm:flex items-center gap-4">
-                <button type="button" onclick="openLeadModal()" class="btn-swiss px-7 py-3 text-xs rounded-sm min-touch-target">
+            <!-- Header Action CTAs -->
+            <div class="flex items-center gap-3">
+                <button type="button" onclick="openLeadModal('Header CTA')" class="btn-brand-primary text-xs rounded-sm">
                     Start a Project
                 </button>
-            </div>
 
-            <button type="button" id="mobileMenuBtn" class="md:hidden text-swiss-black p-2 min-touch-target" aria-label="Toggle menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+                <button type="button" 
+                        id="mobileMenuToggle" 
+                        class="md:hidden text-brand-black p-2 min-h-[44px] min-w-[44px] flex items-center justify-center border border-brand-grayBorder rounded-sm" 
+                        aria-label="Toggle Navigation Menu"
+                        aria-expanded="false"
+                        aria-controls="mobileNavMenu">
+                    <i data-lucide="menu" class="w-6 h-6" id="mobileMenuIcon" aria-hidden="true"></i>
+                </button>
+            </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-swiss-gray absolute top-full left-0 right-0 shadow-2xl">
-            <div class="flex flex-col divide-y divide-swiss-gray text-sm font-bold uppercase tracking-wider">
-                <button type="button" onclick="toggleMobileServices()" class="w-full flex items-center justify-between px-6 py-4 text-left text-swiss-black">
-                    Services <i data-lucide="chevron-down" class="w-4 h-4 transition-transform text-swiss-red" id="mobileServicesChevron"></i>
-                </button>
-                <div id="mobileServicesPanel" class="hidden bg-swiss-slateLight flex-col divide-y divide-swiss-gray">
-                    <a href="#services" onclick="goToService(event, 'fabrication')" class="px-8 py-3.5 text-xs block text-swiss-navy">Structural Fabrication</a>
-                    <a href="#services" onclick="goToService(event, 'btl')" class="px-8 py-3.5 text-xs block text-swiss-navy">BTL Activations</a>
-                    <a href="#services" onclick="goToService(event, 'marketing')" class="px-8 py-3.5 text-xs block text-swiss-navy">Retail Marketing</a>
-                </div>
-                <a href="#about" class="px-6 py-4 block hover:text-swiss-red">About Us</a>
-                <a href="#portfolio" class="px-6 py-4 block hover:text-swiss-red">Portfolio</a>
-                <a href="#contact" class="px-6 py-4 block hover:text-swiss-red">Contact</a>
-                <div class="p-6">
-                    <button type="button" onclick="openLeadModal()" class="w-full btn-swiss py-4 text-xs rounded-sm">
-                        Start a Project
-                    </button>
-                </div>
+        <!-- Accessible Mobile Navigation Overlay -->
+        <div id="mobileNavMenu" class="hidden md:hidden bg-white border-b border-brand-grayBorder absolute top-full left-0 right-0 shadow-2xl">
+            <div class="flex flex-col divide-y divide-brand-grayBorder text-xs font-extrabold uppercase tracking-wider">
+                <a href="#CAPABILITIES" onclick="closeMobileMenu()" class="px-6 py-4 block hover:text-brand-red min-h-[48px] flex items-center">Capabilities</a>
+                <a href="#portfolio" onclick="closeMobileMenu()" class="px-6 py-4 block hover:text-brand-red min-h-[48px] flex items-center">Selected Work</a>
+                <a href="#process" onclick="closeMobileMenu()" class="px-6 py-4 block hover:text-brand-red min-h-[48px] flex items-center">How We Execute</a>
+                <a href="#about" onclick="closeMobileMenu()" class="px-6 py-4 block hover:text-brand-red min-h-[48px] flex items-center">About Brand Puller</a>
+                <a href="#contact" onclick="closeMobileMenu()" class="px-6 py-4 block hover:text-brand-red min-h-[48px] flex items-center">Contact & Inquiries</a>
             </div>
         </div>
     </header>
 
     <main class="pt-20">
-        <!-- HERO SECTION -->
-        <section class="relative min-h-[88vh] w-full flex items-center pt-16 pb-24 bg-swiss-bg border-b border-swiss-gray overflow-hidden">
-            <div class="w-full px-6 md:px-12 max-w-[1600px] mx-auto relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-                    <div class="lg:col-span-12">
-                        <div id="heroBadge" class="reveal-fade inline-flex items-center gap-3 bg-swiss-amberLight text-swiss-amber font-extrabold text-xs uppercase tracking-[0.25em] px-4 py-2 rounded-full mb-8 border border-swiss-amber/20">
-                            <span class="w-2 h-2 bg-swiss-amber rounded-full animate-pulse"></span> 
-                            Architectural & Experiential Marketing
-                        </div>
 
-                        <h1 class="font-display font-black text-5xl sm:text-7xl lg:text-[8.5rem] tracking-tighter leading-[0.88] text-swiss-black mb-12 uppercase">
-                            <span id="heroLine1" class="reveal-up block">Ideas you can</span>
-                            <span id="heroLine2" class="reveal-up block text-swiss-red mt-2">
-                                walk into.
-                            </span>
-                        </h1>
-                    </div>
-
-                    <div class="lg:col-span-8 lg:col-start-5 reveal-fade" id="heroDetails">
-                        <div class="pt-8 border-t-2 border-swiss-black flex flex-col md:flex-row gap-8 md:items-start justify-between">
-                            <p class="text-swiss-slate text-lg sm:text-xl font-semibold leading-relaxed max-w-2xl">
-                                Since 2011, Brand Puller has translated high-concept brand strategies into physical reality. We specialize in precision structural fabrication, large-scale BTL activations, and immersive retail environments.
-                            </p>
-                            <button type="button" onclick="lenisScrollTo('#services')" class="shrink-0 group flex items-center gap-4 text-xs font-extrabold uppercase tracking-widest min-touch-target transition-colors hover:text-swiss-red">
-                                Explore <i data-lucide="arrow-down" class="w-5 h-5 text-swiss-red group-hover:translate-y-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OUR PROUD PAST CLIENTS -->
-        <section class="py-16 bg-white border-b border-swiss-gray overflow-hidden">
-            <div class="w-full px-6 md:px-12 mb-10 max-w-[1600px] mx-auto reveal-fade" data-reveal>
-                <div class="flex items-center gap-3">
-                    <span class="w-3 h-3 bg-swiss-red rounded-full"></span>
-                    <h2 class="text-sm font-extrabold uppercase tracking-[0.2em] text-swiss-navy">Our Proud Past Clients</h2>
-                </div>
-            </div>
+        <!-- 01. HERO SECTION -->
+        <section class="relative min-h-[85vh] w-full flex items-center py-8 sm:py-16 bg-brand-bg border-b border-brand-grayBorder overflow-hidden" aria-label="Introduction">
             
-            <div class="marquee-container relative w-full grayscale-hover items-center">
-                <div class="marquee-wrapper items-center">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/164962083_755676901618189_4421697615004590274_n.jpg" loading="lazy" alt="Brand Puller Client" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/a88ba84aac084c186b5faf2cdfee7ff0.jpg" loading="lazy" alt="Brand Puller Client" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/50395184_225081248432184_6020164270489075712_n.jpg" loading="lazy" alt="Brand Puller Client" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/logo.jpg" loading="lazy" alt="Brand Puller Logo" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" loading="lazy" alt="Shell" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" loading="lazy" alt="Panasonic" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" loading="lazy" alt="Lipton" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/inovative.jpg" loading="lazy" alt="Innovative" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/grocerapp-mayfair-5f71c61db8ad8.jpg" loading="lazy" alt="Grocer App" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
-                </div>
-                <div class="marquee-wrapper items-center" aria-hidden="true">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/164962083_755676901618189_4421697615004590274_n.jpg" loading="lazy" alt="Brand Puller Client" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/a88ba84aac084c186b5faf2cdfee7ff0.jpg" loading="lazy" alt="Brand Puller Client" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/50395184_225081248432184_6020164270489075712_n.jpg" loading="lazy" alt="Brand Puller Client" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/logo.jpg" loading="lazy" alt="Brand Puller Logo" width="130" height="50" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" loading="lazy" alt="Shell" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" loading="lazy" alt="Panasonic" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" loading="lazy" alt="Lipton" width="120" height="45" class="h-10 sm:h-12 w-auto object-contain">
+            <!-- Grid Pattern Overlay -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" aria-hidden="true"></div>
+
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12 w-full relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center gap-2 bg-white/40 backdrop-blur-sm border border-brand-grayBorder/50 px-3.5 py-1.5 rounded-full mb-6 text-brand-black font-extrabold text-[11px] uppercase tracking-[0.2em] shadow-sm">
+                            Brand Puller — Established 2011
+                        </div>
+
+                        <h1 class="hero-title font-display font-black text-brand-black tracking-tighter uppercase mb-6">
+                            We turn brand ideas into spaces people can <span class="text-brand-red block">walk into.</span>
+                        </h1>
+
+                        <p class="text-brand-slate text-base sm:text-lg font-semibold leading-relaxed max-w-2xl mb-8">
+                            Since 2011, Brand Puller has engineered high-concept spatial visual identity across Pakistan — specializing in structural exhibition booths, high-footfall BTL activations, and durable retail execution.
+                        </p>
+
+                        <!-- Hero CTAs -->
+                        <div class="flex flex-wrap items-center gap-4 mb-12">
+                            <button type="button" onclick="openLeadModal('Hero Primary')" class="btn-brand-primary text-xs rounded-sm gap-2">
+                                Start a Project <i data-lucide="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                            </button>
+                            <a href="#CAPABILITIES" class="btn-brand-outline text-xs rounded-sm gap-2 bg-white/50 backdrop-blur-sm">
+                                Explore CAPABILITIES <i data-lucide="arrow-down" class="w-4 h-4 text-brand-red" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        <!-- Credibility Metrics Grid -->
+                        <div class="pt-8 border-t border-brand-grayBorder grid grid-cols-3 gap-4 max-w-lg">
+                            <div>
+                                <span class="block font-display font-black text-2xl sm:text-3xl text-brand-black">15+</span>
+                                <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-slate">Years Experience</span>
+                            </div>
+                            <div>
+                                <span class="block font-display font-black text-2xl sm:text-3xl text-brand-black">200+</span>
+                                <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-slate">Professionals</span>
+                            </div>
+                            <div>
+                                <span class="block font-display font-black text-2xl sm:text-3xl text-brand-black">100%</span>
+                                <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-slate">On-Time Setup</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Media Showcase -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white p-3 border border-brand-grayBorder shadow-2xl rounded-sm touch-full-color">
+                            <div class="relative aspect-[4/3] w-full overflow-hidden bg-brand-lightGray rounded-sm">
+                                <img src="https://brandpuller.com/wp-content/uploads/2021/11/fabrication-scaled.jpg" 
+                                     alt="Brand Puller exhibition stall structural fabrication work in Karachi" 
+                                     class="w-full h-full object-cover grayscale md:hover:grayscale-0 transition-all duration-500">
+                            </div>
+                            <div class="p-4 bg-brand-lightGray border border-brand-grayBorder mt-3 flex items-center justify-between">
+                                <div>
+                                    <p class="text-[11px] font-black uppercase tracking-wider text-brand-red">Karachi Fabrication Workshop</p>
+                                    <p class="text-xs font-bold text-brand-black">Bespoke Wood, Metal & Modular Joinery</p>
+                                </div>
+                                <i data-lucide="hammer" class="w-5 h-5 text-brand-black shrink-0" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT (EDITORIAL GRID) -->
-        <section id="about" class="py-24 sm:py-32 bg-swiss-bg relative border-b border-swiss-gray">
-            <div class="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start grid-lines bg-swiss-gray border border-swiss-gray">
+        <!-- 02. TRUSTED BY / CLIENT LOGOS -->
+        <section class="py-12 bg-white border-b border-brand-grayBorder overflow-hidden" aria-label="Client Trust">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12 mb-6">
+                <h2 class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-slate">
+                    Trusted by teams we've worked with
+                </h2>
+            </div>
+
+            <!-- Accessible Marquee Wrapper -->
+            <div class="marquee-container relative w-full items-center touch-full-color" id="logoMarquee" tabindex="0" aria-label="Client logo carousel">
+                <div class="marquee-wrapper items-center">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" alt="Shell Pakistan" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" alt="Panasonic" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" alt="Lipton" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/inovative.jpg" alt="Innovative Biscuits" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/grocerapp-mayfair-5f71c61db8ad8.jpg" alt="GrocerApp / Mayfair" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/164962083_755676901618189_4421697615004590274_n.jpg" alt="Client brand logo" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/a88ba84aac084c186b5faf2cdfee7ff0.jpg" alt="Client partner logo" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/50395184_225081248432184_6020164270489075712_n.jpg" alt="Shell Pakistan" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/logo-site-white-header-animated-med.22180f8ca16ad33fd51a4b8f78d4120d.jpg" alt="Shell Pakistan" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                </div>
+                
+                <!-- Duplicated Loop (Hidden from Screen Readers) -->
+                <div class="marquee-wrapper items-center" aria-hidden="true">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/inovative.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/grocerapp-mayfair-5f71c61db8ad8.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/164962083_755676901618189_4421697615004590274_n.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/50395184_225081248432184_6020164270489075712_n.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/logo-site-white-header-animated-med.22180f8ca16ad33fd51a4b8f78d4120d.jpg" alt="" class="h-10 sm:h-12 w-auto object-contain grayscale md:hover:grayscale-0 transition-all">
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. CAPABILITIES / SERVICES -->
+        <section id="CAPABILITIES" class="py-20 sm:py-28 bg-brand-bg border-b border-brand-grayBorder" aria-label="Capabilities">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+                
+                <div class="mb-14">
+                    <span class="text-brand-red font-extrabold text-xs tracking-[0.2em] uppercase mb-3 block">Core Divisions</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight">What We Make Happen</h2>
+                </div>
+
+                <!-- Modern Card Grid UX (Replaces Tabs) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     
-                    <!-- Title Block -->
-                    <div class="lg:col-span-4 p-8 sm:p-12 reveal-up h-full flex flex-col justify-between" data-reveal>
-                        <span class="text-swiss-red font-extrabold text-xs tracking-[0.2em] uppercase mb-12 block">Foundation & Legacy</span>
-                        <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-swiss-black tracking-tight leading-tight">
-                            Built on the belief that bold ideas deserve physical form.
+                    <!-- Division 1: Structural Fabrication -->
+                    <div class="flex flex-col bg-white border border-brand-grayBorder rounded-sm overflow-hidden group hover:border-brand-black hover:shadow-xl transition-all duration-300">
+                        <div class="aspect-[4/3] bg-brand-lightGray overflow-hidden relative">
+                            <img src="https://brandpuller.com/wp-content/uploads/2021/11/fabrication-scaled.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" alt="Exhibition stall metalwork and structural fabrication execution">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <span class="text-white font-bold text-sm tracking-wide uppercase">Precision Engineering &rarr;</span>
+                            </div>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] uppercase tracking-widest font-extrabold text-brand-red mb-2 block">Division 01</span>
+                                <h3 class="font-display font-extrabold text-2xl text-brand-black mb-4">Structural Fabrication & Exhibition Booths</h3>
+                                <p class="text-brand-slate text-sm font-semibold leading-relaxed mb-6">Exhibition stands, kiosks, structural installations, and physical brand environments engineered for precision, durability, and visual dominance.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">CNC & Metalwork</span>
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">Wood Joinery</span>
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">On-Site Setup</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Division 2: BTL Activations -->
+                    <div class="flex flex-col bg-white border border-brand-grayBorder rounded-sm overflow-hidden group hover:border-brand-black hover:shadow-xl transition-all duration-300">
+                        <div class="aspect-[4/3] bg-brand-lightGray overflow-hidden relative">
+                            <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" alt="Brand activation space built in mall environment">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <span class="text-white font-bold text-sm tracking-wide uppercase">High Engagement &rarr;</span>
+                            </div>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] uppercase tracking-widest font-extrabold text-brand-red mb-2 block">Division 02</span>
+                                <h3 class="font-display font-extrabold text-2xl text-brand-black mb-4">BTL Activations & Experiential Events</h3>
+                                <p class="text-brand-slate text-sm font-semibold leading-relaxed mb-6">High-footfall mall activations, experiential consumer spaces, live roadshows, and interactive brand touchpoints built for maximum engagement.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">Mall Activations</span>
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">Live Roadshows</span>
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">Experiential</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Division 3: Retail Marketing -->
+                    <div class="flex flex-col bg-white border border-brand-grayBorder rounded-sm overflow-hidden group hover:border-brand-black hover:shadow-xl transition-all duration-300">
+                        <div class="aspect-[4/3] bg-brand-lightGray overflow-hidden relative">
+                            <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" alt="Retail merchandising display fixtures">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 via-brand-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                                <span class="text-white font-bold text-sm tracking-wide uppercase">Commercial Scale &rarr;</span>
+                            </div>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] uppercase tracking-widest font-extrabold text-brand-red mb-2 block">Division 03</span>
+                                <h3 class="font-display font-extrabold text-2xl text-brand-black mb-4">Retail Marketing & Merchandising</h3>
+                                <p class="text-brand-slate text-sm font-semibold leading-relaxed mb-6">Point-of-sale fixtures, in-store merchandising displays, illuminated shelf branding, and durable retail execution across commercial chains.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">POS Fixtures</span>
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">Shelf Branding</span>
+                                <span class="px-3 py-1 bg-brand-lightGray border border-brand-grayBorder text-[10px] font-extrabold text-brand-black uppercase rounded-sm">Floor Displays</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. SELECTED WORK / PORTFOLIO -->
+        <section id="portfolio" class="py-20 sm:py-28 bg-white border-b border-brand-grayBorder" aria-label="Selected Projects">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10">
+                    <div>
+                        <span class="text-brand-red font-extrabold text-xs tracking-[0.2em] uppercase mb-3 block">Archive</span>
+                        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight">Selected Work</h2>
+                    </div>
+
+                    <!-- Portfolio Filter Buttons -->
+                    <div class="flex flex-wrap gap-3 mt-6 md:mt-0" role="group" aria-label="Portfolio Category Filters" id="portfolioFilterGroup">
+                        <button type="button" onclick="filterPortfolio('all')" data-category="all" aria-pressed="true" class="filter-btn text-xs font-extrabold uppercase tracking-wider px-3 py-1.5 border-b-2 border-brand-red text-brand-red min-h-[44px]">All Work</button>
+                        <button type="button" onclick="filterPortfolio('fabrication')" data-category="fabrication" aria-pressed="false" class="filter-btn text-xs font-extrabold uppercase tracking-wider px-3 py-1.5 border-b-2 border-transparent text-brand-slate hover:text-brand-black min-h-[44px]">Fabrication</button>
+                        <button type="button" onclick="filterPortfolio('btl')" data-category="btl" aria-pressed="false" class="filter-btn text-xs font-extrabold uppercase tracking-wider px-3 py-1.5 border-b-2 border-transparent text-brand-slate hover:text-brand-black min-h-[44px]">BTL</button>
+                        <button type="button" onclick="filterPortfolio('marketing')" data-category="marketing" aria-pressed="false" class="filter-btn text-xs font-extrabold uppercase tracking-wider px-3 py-1.5 border-b-2 border-transparent text-brand-slate hover:text-brand-black min-h-[44px]">Marketing</button>
+                    </div>
+                </div>
+
+                <!-- Editorial Grid Layout -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-grayBorder border border-brand-grayBorder touch-full-color" id="portfolioGrid">
+                    
+                    <!-- Item 1: Fabrication -->
+                    <button type="button" 
+                            onclick="openPortfolioModal('Custom Exhibition Booth', 'Fabrication', 'Modular kiosk design and custom metal fabrication executed with precision joinery.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg')"
+                            data-cat="fabrication" 
+                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg" loading="lazy" alt="Custom exhibition stall build" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Fabrication</span>
+                            <span class="font-display font-extrabold text-xl">Custom Exhibition Booth</span>
+                        </div>
+                    </button>
+
+                    <!-- Item 2: Structural Kiosk -->
+                    <button type="button" 
+                            onclick="openPortfolioModal('Structural Kiosk', 'Fabrication', 'Complete start-to-finish fabrication focused on high-traffic durability.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg')"
+                            data-cat="fabrication" 
+                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg" loading="lazy" alt="Structural kiosk installation" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Fabrication</span>
+                            <span class="font-display font-extrabold text-xl">Structural Kiosk</span>
+                        </div>
+                    </button>
+
+                    <!-- Item 3: BTL Activation -->
+                    <button type="button" 
+                            onclick="openPortfolioModal('Brand Activation Space', 'BTL Activations', 'High footfall mall activation setup designed for maximum spatial flow.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg')"
+                            data-cat="btl" 
+                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg" loading="lazy" alt="Mall BTL activation booth" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">BTL Activations</span>
+                            <span class="font-display font-extrabold text-xl">Activation Space</span>
+                        </div>
+                    </button>
+
+                    <!-- Item 4: Retail Display -->
+                    <button type="button" 
+                            onclick="openPortfolioModal('Retail Merchandising Display', 'Retail Marketing', 'Custom point-of-sale material developed for retail chains.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg')"
+                            data-cat="marketing" 
+                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg" loading="lazy" alt="Retail display merchandising fixture" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Retail Marketing</span>
+                            <span class="font-display font-extrabold text-xl">Merchandising Display</span>
+                        </div>
+                    </button>
+
+                    <!-- Item 5: Bespoke Booth -->
+                    <button type="button" 
+                            onclick="openPortfolioModal('Bespoke Architectural Booth', 'Fabrication', 'Custom built architectural stall balancing aesthetics with material economy.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg')"
+                            data-cat="fabrication" 
+                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg" loading="lazy" alt="Bespoke exhibition booth" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Fabrication</span>
+                            <span class="font-display font-extrabold text-xl">Bespoke Booth</span>
+                        </div>
+                    </button>
+
+                    <!-- Item 6: Live Roadshow -->
+                    <button type="button" 
+                            onclick="openPortfolioModal('Live Roadshow Setup', 'BTL Activations', 'Mobile on-ground event execution requiring rapid deployment.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg')"
+                            data-cat="btl" 
+                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg" loading="lazy" alt="Roadshow activation rig" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                            <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">BTL Activations</span>
+                            <span class="font-display font-extrabold text-xl">Live Roadshow</span>
+                        </div>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 05. HOW WE EXECUTE (PROCESS) -->
+        <section id="process" class="py-20 sm:py-28 bg-brand-bg border-b border-brand-grayBorder" aria-label="Execution Process">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+                
+                <div class="mb-16 text-center max-w-3xl mx-auto">
+                    <span class="text-brand-red font-extrabold text-xs tracking-[0.2em] uppercase mb-3 block">Structured Operations</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight">From Concept to Installation</h2>
+                </div>
+
+                <!-- Redesigned Stepper / Timeline Layout -->
+                <div class="relative max-w-6xl mx-auto">
+                    
+                    <!-- Horizontal Line connecting steps (Desktop Only) -->
+                    <div class="hidden md:block absolute top-8 left-[10%] right-[10%] h-[2px] bg-brand-grayBorder z-0" aria-hidden="true"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-6">
+                        
+                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                            <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">1</div>
+                            <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Understand</h3>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Client brief analysis, spatial parameters, site constraints, and structural goals.</p>
+                        </div>
+
+                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                            <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">2</div>
+                            <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Design</h3>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Concept development, spatial mapping, and accurate 3D CAD visualization.</p>
+                        </div>
+
+                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                            <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">3</div>
+                            <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Engineer</h3>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Material selection, joinery mechanics, load calculations, and production planning.</p>
+                        </div>
+
+                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                            <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">4</div>
+                            <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Build</h3>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">In-house workshop fabrication, CNC cutting, welding, joinery, and finishing.</p>
+                        </div>
+
+                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                            <div class="w-16 h-16 rounded-full bg-brand-black text-white flex items-center justify-center font-display font-black text-2xl mb-6 shadow-xl border-2 border-brand-black md:mx-auto group-hover:bg-brand-red group-hover:border-brand-red transition-colors duration-300">5</div>
+                            <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Install</h3>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">On-site logistics deployment, assembly, electrical wiring, and pre-event readiness.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. PROOF / EXPERIENCE & TESTIMONIALS -->
+        <section class="py-20 sm:py-28 bg-white border-b border-brand-grayBorder" aria-label="Experience & Endorsements">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+                
+                <div class="mb-12">
+                    <span class="text-brand-red font-extrabold text-xs tracking-[0.2em] uppercase mb-3 block">Track Record</span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight">Experience in Practice</h2>
+                </div>
+
+                <!-- Testimonials Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <div class="p-8 bg-brand-bg border border-brand-grayBorder rounded-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <p class="text-brand-slate text-base sm:text-lg font-serif italic mb-8">
+                            "Brand Puller managed our mall activation flawlessly. The structural integrity of the booth and the punctuality of the installation team in Karachi was highly commendable."
+                        </p>
+                        <div class="pt-4 border-t border-brand-grayBorder">
+                            <p class="font-display font-extrabold text-xs uppercase tracking-wider text-brand-black">FMCG Enterprise</p>
+                            <p class="text-[11px] font-bold text-brand-red uppercase tracking-widest mt-0.5">Brand Activation</p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-brand-bg border border-brand-grayBorder rounded-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <p class="text-brand-slate text-base sm:text-lg font-serif italic mb-8">
+                            "Our custom exhibition stall stood out completely. Their CAD rendering matched the on-ground reality 100%, and the team's professional approach made the process stress-free."
+                        </p>
+                        <div class="pt-4 border-t border-brand-grayBorder">
+                            <p class="font-display font-extrabold text-xs uppercase tracking-wider text-brand-black">Marketing Head</p>
+                            <p class="text-[11px] font-bold text-brand-red uppercase tracking-widest mt-0.5">Tech & Electronics</p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-brand-bg border border-brand-grayBorder rounded-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <p class="text-brand-slate text-base sm:text-lg font-serif italic mb-8">
+                            "We rely on Brand Puller for our retail merchandising and POS materials. Economical solutions without compromising on the quality of raw materials used."
+                        </p>
+                        <div class="pt-4 border-t border-brand-grayBorder">
+                            <p class="font-display font-extrabold text-xs uppercase tracking-wider text-brand-black">Brand Director</p>
+                            <p class="text-[11px] font-bold text-brand-red uppercase tracking-widest mt-0.5">National Retail Chain</p>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-brand-bg border border-brand-grayBorder rounded-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <p class="text-brand-slate text-base sm:text-lg font-serif italic mb-8">
+                            "Exceptional turn-around time on complex metal fabrication structures. Their team worked overnight to deliver a flawless experience for our expo booth."
+                        </p>
+                        <div class="pt-4 border-t border-brand-grayBorder">
+                            <p class="font-display font-extrabold text-xs uppercase tracking-wider text-brand-black">Lead Event Manager</p>
+                            <p class="text-[11px] font-bold text-brand-red uppercase tracking-widest mt-0.5">Corporate Expo</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 07. ABOUT BRAND PULLER & CORE VALUES -->
+        <section id="about" class="py-20 sm:py-28 bg-brand-bg border-b border-brand-grayBorder" aria-label="About Brand Puller">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+                    <div class="lg:col-span-5">
+                        <span class="text-brand-red font-extrabold text-xs tracking-[0.2em] uppercase mb-3 block">Foundation & Legacy</span>
+                        <h2 class="font-display font-black text-4xl sm:text-5xl text-brand-black tracking-tight uppercase leading-tight">
+                            Built to turn bold ideas into physical reality.
                         </h2>
                     </div>
 
-                    <!-- Content Block -->
-                    <div class="lg:col-span-8 p-8 sm:p-12 reveal-up h-full flex flex-col justify-between" data-reveal>
-                        <div class="space-y-8 max-w-2xl mb-16">
-                            <p class="text-swiss-dark text-xl leading-relaxed font-bold">
-                                What began in 2011 as Consumer Access is today <strong class="text-swiss-red font-black">Brand Puller (Private) Limited</strong> — a collective of experienced marketing professionals, industrial designers, and structural engineers delivering bespoke marketing solutions.
-                            </p>
-                            <p class="text-swiss-slate text-base leading-relaxed font-semibold">
-                                Our objective is to engineer long-term, mutually beneficial relationships with our clients on the solid grounds of transparency, structural integrity, and flawless execution.
-                            </p>
-                        </div>
-
-                        <!-- Stats Grid -->
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-12 pt-8 border-t-2 border-swiss-gray">
-                            <div>
-                                <div class="font-display text-4xl font-extrabold text-swiss-navy mb-2" data-count="2011" data-static="true">2011</div>
-                                <div class="text-xs text-swiss-slate uppercase tracking-widest font-extrabold">Established</div>
-                            </div>
-                            <div>
-                                <div class="font-display text-4xl font-extrabold text-swiss-navy mb-2"><span data-count="15">0</span>+</div>
-                                <div class="text-xs text-swiss-slate uppercase tracking-widest font-extrabold">Years Experience</div>
-                            </div>
-                            <div>
-                                <div class="font-display text-4xl font-extrabold text-swiss-navy mb-2"><span data-count="200">0</span>+</div>
-                                <div class="text-xs text-swiss-slate uppercase tracking-widest font-extrabold">Professionals</div>
-                            </div>
-                            <div>
-                                <div class="font-display text-4xl font-extrabold text-swiss-navy mb-2"><span data-count="3">0</span></div>
-                                <div class="text-xs text-swiss-slate uppercase tracking-widest font-extrabold">Core Divisions</div>
-                            </div>
-                        </div>
+                    <div class="lg:col-span-7 space-y-6 text-brand-slate font-semibold text-base sm:text-lg leading-relaxed pt-2">
+                        <p>
+                            Established in 2011 as Consumer Access, today <strong class="text-brand-black">Brand Puller (Private) Limited</strong> operates as a full-service marketing, fabrication, and spatial execution house based in Karachi, Pakistan.
+                        </p>
+                        <p>
+                            We bring together industrial designers, structural fabricators, and event operations experts to build live brand environments grounded in transparency, exact material specifications, and strict deadline delivery.
+                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- CORE VALUES (REDESIGNED FRESH LAYOUT) -->
-        <section id="core-values" class="py-24 sm:py-32 bg-swiss-slateLight relative border-b border-swiss-gray">
-            <div class="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-                
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 reveal-up" data-reveal>
-                    <div class="max-w-xl">
-                        <span class="inline-block px-3 py-1 bg-swiss-red/10 text-swiss-red font-extrabold text-xs tracking-[0.2em] uppercase rounded-sm mb-4">Our Principles</span>
-                        <h2 class="font-display font-black text-4xl sm:text-6xl text-swiss-black tracking-tight">Core Values & Standards</h2>
-                    </div>
-                    <p class="max-w-md text-swiss-slate font-semibold text-base mt-6 md:mt-0 border-l-4 border-swiss-red pl-4">
-                        The bedrock operational standards guiding our structural engineering, fabrication, and client partnerships.
-                    </p>
-                </div>
-
-                <!-- Modern Elevated Card Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-up" data-reveal>
-                    
-                    <!-- Value Card 1 -->
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border-t-4 border-swiss-navy shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-8">
-                                <div class="w-14 h-14 bg-swiss-navy/10 rounded-lg flex items-center justify-center text-swiss-navy group-hover:bg-swiss-navy group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="award" class="w-7 h-7"></i>
-                                </div>
-                                <span class="text-xs font-black text-swiss-navy uppercase tracking-widest bg-swiss-navy/5 px-3 py-1 rounded">Ethical Sourcing</span>
-                            </div>
-                            <h3 class="font-display font-extrabold text-2xl text-swiss-black mb-4">Uncompromising Integrity</h3>
-                            <p class="text-swiss-slate font-semibold text-sm leading-relaxed">Building long-term client relationships based on honesty, structural transparency, and exact material specifications.</p>
-                        </div>
-                    </div>
-
-                    <!-- Value Card 2 -->
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border-t-4 border-swiss-red shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-8">
-                                <div class="w-14 h-14 bg-swiss-red/10 rounded-lg flex items-center justify-center text-swiss-red group-hover:bg-swiss-red group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="lightbulb" class="w-7 h-7"></i>
-                                </div>
-                                <span class="text-xs font-black text-swiss-red uppercase tracking-widest bg-swiss-red/5 px-3 py-1 rounded">Spatial Design</span>
-                            </div>
-                            <h3 class="font-display font-extrabold text-2xl text-swiss-black mb-4">Creative Innovation</h3>
-                            <p class="text-swiss-slate font-semibold text-sm leading-relaxed">Pushing spatial and structural boundaries to transform 2D concepts into captivating live brand experiences.</p>
-                        </div>
-                    </div>
-
-                    <!-- Value Card 3 -->
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border-t-4 border-swiss-amber shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-8">
-                                <div class="w-14 h-14 bg-swiss-amber/10 rounded-lg flex items-center justify-center text-swiss-amber group-hover:bg-swiss-amber group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="clock" class="w-7 h-7"></i>
-                                </div>
-                                <span class="text-xs font-black text-swiss-amber uppercase tracking-widest bg-swiss-amber/5 px-3 py-1 rounded">On-Time Always</span>
-                            </div>
-                            <h3 class="font-display font-extrabold text-2xl text-swiss-black mb-4">Precision Delivery</h3>
-                            <p class="text-swiss-slate font-semibold text-sm leading-relaxed">Strict deadline adherence and precise logistics, ensuring setup readiness hours before official event doors open.</p>
-                        </div>
-                    </div>
-
-                    <!-- Value Card 4 -->
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border-t-4 border-swiss-crimson shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-8">
-                                <div class="w-14 h-14 bg-swiss-crimson/10 rounded-lg flex items-center justify-center text-swiss-crimson group-hover:bg-swiss-crimson group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="layers" class="w-7 h-7"></i>
-                                </div>
-                                <span class="text-xs font-black text-swiss-crimson uppercase tracking-widest bg-swiss-crimson/5 px-3 py-1 rounded">Superior Crafts</span>
-                            </div>
-                            <h3 class="font-display font-extrabold text-2xl text-swiss-black mb-4">First-Rate Quality</h3>
-                            <p class="text-swiss-slate font-semibold text-sm leading-relaxed">Utilizing high-grade metals, fine joinery, and thorough quality checks across every fabrication phase.</p>
-                        </div>
-                    </div>
-
-                    <!-- Value Card 5 -->
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border-t-4 border-swiss-teal shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-8">
-                                <div class="w-14 h-14 bg-swiss-teal/10 rounded-lg flex items-center justify-center text-swiss-teal group-hover:bg-swiss-teal group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="coins" class="w-7 h-7"></i>
-                                </div>
-                                <span class="text-xs font-black text-swiss-teal uppercase tracking-widest bg-swiss-teal/5 px-3 py-1 rounded">Maximum Value</span>
-                            </div>
-                            <h3 class="font-display font-extrabold text-2xl text-swiss-black mb-4">Economical Engineering</h3>
-                            <p class="text-swiss-slate font-semibold text-sm leading-relaxed">Maximizing visual impact and structural durability while remaining strictly tailored to client budget allocations.</p>
-                        </div>
-                    </div>
-
-                    <!-- Value Card 6 -->
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border-t-4 border-swiss-black shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-8">
-                                <div class="w-14 h-14 bg-swiss-black/10 rounded-lg flex items-center justify-center text-swiss-black group-hover:bg-swiss-black group-hover:text-white transition-colors duration-300">
-                                    <i data-lucide="users" class="w-7 h-7"></i>
-                                </div>
-                                <span class="text-xs font-black text-swiss-black uppercase tracking-widest bg-swiss-black/5 px-3 py-1 rounded">End-to-End</span>
-                            </div>
-                            <h3 class="font-display font-extrabold text-2xl text-swiss-black mb-4">Strategic Partnership</h3>
-                            <p class="text-swiss-slate font-semibold text-sm leading-relaxed">Working in tandem with brand teams from initial CAD rendering right up to post-event breakdown.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES -->
-        <section id="services" class="py-24 sm:py-32 bg-swiss-bg border-b border-swiss-gray relative">
-            <div class="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-                <div class="mb-16 reveal-fade" data-reveal>
-                    <span class="text-swiss-red font-extrabold text-xs tracking-[0.2em] uppercase mb-4 block">Capabilities</span>
-                    <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-swiss-black tracking-tight">What We Make Happen</h2>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-swiss-gray bg-white grid-lines rounded-sm shadow-xl overflow-hidden">
-                    <!-- Tabs -->
-                    <div class="lg:col-span-4 flex flex-col" id="serviceTabs" data-reveal>
-                        <button type="button" onclick="switchService('fabrication')" id="tab-fabrication" class="service-tab w-full text-left p-8 sm:p-10 transition-all bg-swiss-black text-white flex flex-col justify-center min-touch-target">
-                            <span class="text-xs uppercase tracking-widest font-black text-swiss-red mb-2">Structural</span>
-                            <h3 class="font-display font-extrabold text-2xl">Fabrication & Booths</h3>
-                        </button>
-
-                        <button type="button" onclick="switchService('btl')" id="tab-btl" class="service-tab w-full text-left p-8 sm:p-10 transition-all bg-white text-swiss-black hover:bg-swiss-slateLight flex flex-col justify-center min-touch-target">
-                            <span class="text-xs uppercase tracking-widest font-black opacity-70 mb-2">Experiential</span>
-                            <h3 class="font-display font-extrabold text-2xl">BTL Activities</h3>
-                        </button>
-
-                        <button type="button" onclick="switchService('marketing')" id="tab-marketing" class="service-tab w-full text-left p-8 sm:p-10 transition-all bg-white text-swiss-black hover:bg-swiss-slateLight flex flex-col justify-center min-touch-target">
-                            <span class="text-xs uppercase tracking-widest font-black opacity-70 mb-2">Strategy</span>
-                            <h3 class="font-display font-extrabold text-2xl">Retail Marketing</h3>
-                        </button>
-                    </div>
-
-                    <!-- Display Panel -->
-                    <div class="lg:col-span-8 p-8 sm:p-12 lg:p-16 flex flex-col justify-center bg-white" id="serviceDisplay" data-reveal>
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-12 h-1 bg-swiss-red"></div>
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold" id="serviceBadge">Exhibition & Structural Builds</span>
-                        </div>
+                <!-- Redesigned Core Values Grid -->
+                <div>
+                    <h3 class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-slate mb-8 border-b border-brand-grayBorder pb-4">Operating Principles</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                            <div id="serviceTextWrapper">
-                                <h3 class="font-display font-extrabold text-3xl sm:text-4xl text-swiss-black mb-6 leading-tight" id="serviceTitle">Exhibition Stands & Custom Fabrication</h3>
-                                <p class="text-swiss-slate font-semibold leading-relaxed mb-8 text-base" id="serviceDesc">
-                                    Designing for a first impression, building to brand values. We engineer bespoke exhibition stalls, kiosks and structural installations — turning raw material into environments people can walk into.
-                                </p>
-                                <div class="flex flex-wrap gap-2" id="serviceTags">
-                                    <span class="px-3 py-1 border border-swiss-gray text-xs font-bold text-swiss-navy uppercase tracking-wider bg-swiss-slateLight">CNC & Metalwork</span>
-                                    <span class="px-3 py-1 border border-swiss-gray text-xs font-bold text-swiss-navy uppercase tracking-wider bg-swiss-slateLight">3D Renderings</span>
-                                    <span class="px-3 py-1 border border-swiss-gray text-xs font-bold text-swiss-navy uppercase tracking-wider bg-swiss-slateLight">Modular Booths</span>
-                                </div>
+                        <div class="bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-grayBorder group">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="font-display font-extrabold text-xl text-brand-black group-hover:text-brand-red transition-colors">Integrity</h4>
+                                <span class="text-brand-grayBorder font-display font-black text-4xl group-hover:text-brand-red/20 transition-colors">01</span>
                             </div>
-                            
-                            <div class="relative aspect-square w-full overflow-hidden bg-swiss-slateLight rounded-sm">
-                                <img id="serviceImage" src="https://brandpuller.com/wp-content/uploads/2021/11/fabrication-scaled.jpg" alt="Fabrication Works" width="600" height="600" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Transparent communication and exact adherence to promised material specifications on every build.</p>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-grayBorder group">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="font-display font-extrabold text-xl text-brand-black group-hover:text-brand-red transition-colors">Innovation</h4>
+                                <span class="text-brand-grayBorder font-display font-black text-4xl group-hover:text-brand-red/20 transition-colors">02</span>
                             </div>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Translating highly complex creative and digital concepts into practical physical engineering.</p>
                         </div>
+
+                        <div class="bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-grayBorder group">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="font-display font-extrabold text-xl text-brand-black group-hover:text-brand-red transition-colors">Precision</h4>
+                                <span class="text-brand-grayBorder font-display font-black text-4xl group-hover:text-brand-red/20 transition-colors">03</span>
+                            </div>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Strict scheduling guarantees total site readiness well before scheduled opening ceremonies.</p>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-grayBorder group">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="font-display font-extrabold text-xl text-brand-black group-hover:text-brand-red transition-colors">Quality</h4>
+                                <span class="text-brand-grayBorder font-display font-black text-4xl group-hover:text-brand-red/20 transition-colors">04</span>
+                            </div>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">High-grade metalwork, refined joinery, and durable finishing standards across all execution.</p>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-grayBorder group">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="font-display font-extrabold text-xl text-brand-black group-hover:text-brand-red transition-colors">Value</h4>
+                                <span class="text-brand-grayBorder font-display font-black text-4xl group-hover:text-brand-red/20 transition-colors">05</span>
+                            </div>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Economical engineering tailored to exact client budget requirements without compromising structural safety.</p>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-brand-grayBorder group">
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="font-display font-extrabold text-xl text-brand-black group-hover:text-brand-red transition-colors">Partnership</h4>
+                                <span class="text-brand-grayBorder font-display font-black text-4xl group-hover:text-brand-red/20 transition-colors">06</span>
+                            </div>
+                            <p class="text-brand-slate text-sm font-semibold leading-relaxed">Collaborative, end-to-end project management from the initial concept stage through to final dismantling.</p>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- PORTFOLIO GRID -->
-        <section id="portfolio" class="py-24 sm:py-32 bg-white text-swiss-black border-b border-swiss-gray">
-            <div class="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-                
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 reveal-fade" data-reveal>
-                    <div>
-                        <span class="text-swiss-red font-extrabold text-xs tracking-[0.2em] uppercase mb-4 block">Project Archive</span>
-                        <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-swiss-black tracking-tight">Recent Work.</h2>
-                    </div>
+        <!-- 08. FINAL PROJECT CTA / CONTACT -->
+        <section id="contact" class="py-20 sm:py-28 bg-white" aria-label="Project Inquiry">
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                     
-                    <div class="flex flex-wrap gap-4 mt-8 md:mt-0" id="portfolioFilters">
-                        <button type="button" onclick="filterPortfolio('all', this)" class="portfolio-filter-btn text-xs uppercase tracking-widest font-extrabold pb-1 border-b-2 border-swiss-red text-swiss-red min-touch-target">All Work</button>
-                        <button type="button" onclick="filterPortfolio('fabrication', this)" class="portfolio-filter-btn text-xs uppercase tracking-widest font-extrabold pb-1 border-b-2 border-transparent text-swiss-slate hover:text-swiss-black transition-colors min-touch-target">Fabrication</button>
-                        <button type="button" onclick="filterPortfolio('btl', this)" class="portfolio-filter-btn text-xs uppercase tracking-widest font-extrabold pb-1 border-b-2 border-transparent text-swiss-slate hover:text-swiss-black transition-colors min-touch-target">BTL</button>
-                        <button type="button" onclick="filterPortfolio('marketing', this)" class="portfolio-filter-btn text-xs uppercase tracking-widest font-extrabold pb-1 border-b-2 border-transparent text-swiss-slate hover:text-swiss-black transition-colors min-touch-target">Marketing</button>
-                    </div>
-                </div>
-
-                <!-- Portfolio Grid -->
-                <div id="portfolioGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-swiss-gray border border-swiss-gray reveal-up shadow-xl" data-reveal>
-                    
-                    <!-- Items -->
-                    <button type="button" onclick="openPortfolioDetail('Custom Exhibition Build', 'Fabrication', 'Modular kiosk design and custom metal fabrication executed with precision joinery.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg" loading="lazy" width="400" height="400" alt="Fabrication project" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Fabrication</span>
-                            <span class="text-white font-display font-extrabold text-lg">Custom Exhibition Build</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Structural Kiosk', 'Fabrication', 'Complete start-to-finish fabrication focused on high-traffic durability.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg" loading="lazy" width="400" height="400" alt="Structural Kiosk" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Fabrication</span>
-                            <span class="text-white font-display font-extrabold text-lg">Structural Kiosk</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Brand Activation Space', 'BTL Activities', 'High footfall mall activation setup designed for maximum spatial flow.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="btl">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg" loading="lazy" width="400" height="400" alt="Brand Activation" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">BTL Activities</span>
-                            <span class="text-white font-display font-extrabold text-lg">Activation Space</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Retail Merchandising Display', 'Marketing', 'Custom point-of-sale material developed for national retail chains.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="marketing">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg" loading="lazy" width="400" height="400" alt="Retail Merchandising" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Marketing</span>
-                            <span class="text-white font-display font-extrabold text-lg">Merchandising Display</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Bespoke Booth', 'Fabrication', 'Custom built architectural stall balancing aesthetics with material economy.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg" loading="lazy" width="400" height="400" alt="Fabrication" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Fabrication</span>
-                            <span class="text-white font-display font-extrabold text-lg">Bespoke Booth</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Live Roadshow', 'BTL Activities', 'Mobile on-ground event execution requiring rapid deployment.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="btl">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg" loading="lazy" width="400" height="400" alt="BTL" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">BTL Activities</span>
-                            <span class="text-white font-display font-extrabold text-lg">Live Roadshow</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Expo Stall', 'Fabrication', 'Premium corporate event fabrication meeting international expo standards.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img294/831332465.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img294/831332465.jpg" loading="lazy" width="400" height="400" alt="Fabrication" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Fabrication</span>
-                            <span class="text-white font-display font-extrabold text-lg">Expo Stall</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('POS Fixtures', 'Marketing', 'Supermarket retail aisle activation requiring precise modularity.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img250/1281826137.jpg')" class="portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="marketing">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img250/1281826137.jpg" loading="lazy" width="400" height="400" alt="Marketing" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Marketing</span>
-                            <span class="text-white font-display font-extrabold text-lg">POS Fixtures</span>
-                        </div>
-                    </button>
-
-                    <!-- Hidden Extra Items -->
-                    <button type="button" onclick="openPortfolioDetail('Custom Fabrication', 'Fabrication', 'Detailed wood and metal joinery.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img293/2712598099.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img293/2712598099.jpg" loading="lazy" width="400" height="400" alt="Fabrication Detailed" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Fabrication</span>
-                            <span class="text-white font-display font-extrabold text-lg">Joinery</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Outdoor Activation', 'BTL Activities', 'Open-air brand engagement setup.', 'https://brandpuller.com/wp-content/uploads/2021/09/img259.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="btl">
-                        <img src="https://brandpuller.com/wp-content/uploads/2021/09/img259.jpg" loading="lazy" width="400" height="400" alt="Outdoor Activation" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">BTL Activities</span>
-                            <span class="text-white font-display font-extrabold text-lg">Outdoor Setup</span>
-                        </div>
-                    </button>
-                    
-                    <button type="button" onclick="openPortfolioDetail('Stall Design', 'Fabrication', 'Corporate environment design.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img287/2401111887.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img287/2401111887.jpg" loading="lazy" width="400" height="400" alt="Stall Design" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Fabrication</span>
-                            <span class="text-white font-display font-extrabold text-lg">Stall Design</span>
-                        </div>
-                    </button>
-
-                    <button type="button" onclick="openPortfolioDetail('Modular Setup', 'Fabrication', 'Quick deployable architecture.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img278/4056766816.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden bg-white group cursor-pointer" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img278/4056766816.jpg" loading="lazy" width="400" height="400" alt="Modular Setup" class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-swiss-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <span class="text-swiss-red text-xs uppercase tracking-widest font-extrabold mb-1">Fabrication</span>
-                            <span class="text-white font-display font-extrabold text-lg">Modular Setup</span>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="mt-12 text-center reveal-up" data-reveal>
-                    <button type="button" id="toggleMoreImagesBtn" onclick="toggleMoreImages()" class="btn-outline px-8 py-3.5 text-xs uppercase tracking-widest font-extrabold min-touch-target rounded-sm">
-                        <span id="moreImagesBtnText">Load More Work</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- CLIENT ENDORSEMENTS -->
-        <section id="trustSection" class="py-24 sm:py-32 bg-swiss-bg border-b border-swiss-gray overflow-hidden relative">
-            <div class="px-6 md:px-12 max-w-[1600px] mx-auto mb-16 relative z-10 reveal-fade" data-reveal>
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div>
-                        <span class="text-swiss-red font-extrabold text-xs tracking-[0.2em] uppercase mb-4 block">Client Testimonials</span>
-                        <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-swiss-black tracking-tight">Client Endorsements.</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="marquee-container relative w-full">
-                <div class="marquee-wrapper items-stretch">
-                    <!-- Cards -->
-                    <div class="w-[320px] sm:w-[450px] p-10 bg-white border border-swiss-gray flex-shrink-0 flex flex-col justify-between h-full rounded-sm shadow-md">
-                        <p class="text-swiss-slate text-lg leading-relaxed mb-10 font-serif italic font-semibold">"Brand Puller managed our mall activation flawlessly. The structural integrity of the booth and the punctuality of the installation team in Karachi was highly commendable."</p>
-                        <div class="pt-6 border-t border-swiss-gray">
-                            <p class="font-display font-extrabold text-sm text-swiss-black uppercase tracking-wider">FMCG Enterprise</p>
-                            <p class="text-xs text-swiss-amber font-extrabold uppercase tracking-widest mt-1">Brand Activation</p>
-                        </div>
-                    </div>
-
-                    <div class="w-[320px] sm:w-[450px] p-10 bg-white border border-swiss-gray flex-shrink-0 flex flex-col justify-between h-full rounded-sm shadow-md">
-                        <p class="text-swiss-slate text-lg leading-relaxed mb-10 font-serif italic font-semibold">"Our custom exhibition stall stood out completely. Their CAD rendering matched the on-ground reality 100%, and the team's professional approach made the process stress-free."</p>
-                        <div class="pt-6 border-t border-swiss-gray">
-                            <p class="font-display font-extrabold text-sm text-swiss-black uppercase tracking-wider">Marketing Head</p>
-                            <p class="text-xs text-swiss-amber font-extrabold uppercase tracking-widest mt-1">Tech & Electronics</p>
-                        </div>
-                    </div>
-
-                    <div class="w-[320px] sm:w-[450px] p-10 bg-white border border-swiss-gray flex-shrink-0 flex flex-col justify-between h-full rounded-sm shadow-md">
-                        <p class="text-swiss-slate text-lg leading-relaxed mb-10 font-serif italic font-semibold">"We rely on Brand Puller for our retail merchandising and POS materials. Economical solutions without compromising on the quality of raw materials used."</p>
-                        <div class="pt-6 border-t border-swiss-gray">
-                            <p class="font-display font-extrabold text-sm text-swiss-black uppercase tracking-wider">Brand Director</p>
-                            <p class="text-xs text-swiss-amber font-extrabold uppercase tracking-widest mt-1">National Retail Chain</p>
-                        </div>
-                    </div>
-
-                    <div class="w-[320px] sm:w-[450px] p-10 bg-white border border-swiss-gray flex-shrink-0 flex flex-col justify-between h-full rounded-sm shadow-md">
-                        <p class="text-swiss-slate text-lg leading-relaxed mb-10 font-serif italic font-semibold">"Exceptional turn-around time on complex metal fabrication structures. Their team worked overnight to deliver a flawless experience for our expo booth."</p>
-                        <div class="pt-6 border-t border-swiss-gray">
-                            <p class="font-display font-extrabold text-sm text-swiss-black uppercase tracking-wider">Lead Event Manager</p>
-                            <p class="text-xs text-swiss-amber font-extrabold uppercase tracking-widest mt-1">Corporate Expo</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="marquee-wrapper items-stretch" aria-hidden="true">
-                    <!-- Cards Duplicate -->
-                    <div class="w-[320px] sm:w-[450px] p-10 bg-white border border-swiss-gray flex-shrink-0 flex flex-col justify-between h-full rounded-sm shadow-md">
-                        <p class="text-swiss-slate text-lg leading-relaxed mb-10 font-serif italic font-semibold">"Brand Puller managed our mall activation flawlessly. The structural integrity of the booth and the punctuality of the installation team in Karachi was highly commendable."</p>
-                        <div class="pt-6 border-t border-swiss-gray">
-                            <p class="font-display font-extrabold text-sm text-swiss-black uppercase tracking-wider">FMCG Enterprise</p>
-                            <p class="text-xs text-swiss-amber font-extrabold uppercase tracking-widest mt-1">Brand Activation</p>
-                        </div>
-                    </div>
-
-                    <div class="w-[320px] sm:w-[450px] p-10 bg-white border border-swiss-gray flex-shrink-0 flex flex-col justify-between h-full rounded-sm shadow-md">
-                        <p class="text-swiss-slate text-lg leading-relaxed mb-10 font-serif italic font-semibold">"Our custom exhibition stall stood out completely. Their CAD rendering matched the on-ground reality 100%, and the team's professional approach made the process stress-free."</p>
-                        <div class="pt-6 border-t border-swiss-gray">
-                            <p class="font-display font-extrabold text-sm text-swiss-black uppercase tracking-wider">Marketing Head</p>
-                            <p class="text-xs text-swiss-amber font-extrabold uppercase tracking-widest mt-1">Tech & Electronics</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER (EDITORIAL GRID) -->
-        <section id="contact" class="pt-24 bg-swiss-black text-white relative">
-            <div class="w-full px-6 md:px-12 max-w-[1600px] mx-auto">
-                
-                <!-- START A PROJECT CALLOUT & ADJUSTED START BUTTON ARROW -->
-                <div class="mb-20 reveal-up" data-reveal>
-                    <button type="button" onclick="openLeadModal()" class="group font-display font-black text-4xl sm:text-7xl lg:text-8xl tracking-tighter leading-none flex items-center justify-between w-full min-touch-target transition-all duration-300 hover:text-swiss-red border-b-2 border-white/20 pb-8">
-                        <span>START A PROJECT</span>
-                        <div class="w-16 h-16 sm:w-24 sm:h-24 bg-swiss-red rounded-full flex items-center justify-center text-white shrink-0 ml-4 transform group-hover:scale-110 group-hover:bg-white group-hover:text-swiss-red transition-all duration-300">
-                            <i data-lucide="arrow-up-right" class="w-8 h-8 sm:w-12 sm:h-12 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-                        </div>
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-t border-white/10 pt-16 pb-16 reveal-fade" data-reveal>
-                    <div class="md:col-span-4 flex flex-col justify-between">
-                        <div>
-                            <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller" width="160" height="42" class="h-7 w-auto mb-8 invert">
-                            <h3 class="text-xs uppercase font-extrabold tracking-[0.2em] text-swiss-red mb-4">Headquarters</h3>
-                            <p class="text-sm font-semibold text-slate-300 leading-relaxed">
-                                R-442, Block 14,<br/>
-                                F.B. Area, Karachi,<br/>
-                                Pakistan
+                    <div class="lg:col-span-5">
+                        <span class="text-brand-red font-extrabold text-xs tracking-[0.2em] uppercase mb-3 block">Start Execution</span>
+                        <h2 class="font-display font-black text-4xl sm:text-6xl text-brand-black tracking-tight uppercase leading-none mb-6">
+                            Have a project in mind?
+                        </h2>
+                        <p class="text-brand-slate font-semibold text-base leading-relaxed mb-8">
+                            Discuss your upcoming exhibition stall, BTL activation, or retail merchandising requirements with our project engineering team.
+                        </p>
+                        
+                        <div class="space-y-4 pt-6 border-t border-brand-grayBorder text-sm font-bold text-brand-black">
+                            <p class="flex items-center gap-3">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-brand-red shrink-0" aria-hidden="true"></i>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=R-442,+Block+14,+F.B.+Area,+Karachi,+Pakistan" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">
+                                    R-442, Block 14, F.B. Area, Karachi, Pakistan
+                                </a>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-5 h-5 text-brand-red shrink-0" aria-hidden="true"></i>
+                                <a href="mailto:info@brandpuller.com" class="hover:text-brand-red transition-colors">info@brandpuller.com</a>
                             </p>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=R-442+Block+14+F.B.+Area+Karachi" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest mt-8 text-swiss-amber hover:text-white transition-colors">
-                            Get Directions <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                        </a>
                     </div>
 
-                    <div class="md:col-span-3">
-                        <h3 class="text-xs uppercase font-extrabold tracking-[0.2em] text-swiss-red mb-6">Leadership Contact</h3>
-                        <div class="space-y-6 text-sm font-semibold">
-                            <div>
-                                <span class="block text-white font-bold mb-1">Abdul Jabbar Panjwani</span>
-                                <a href="tel:+923032366882" class="block text-slate-300 hover:text-swiss-red transition-colors">0303-2366882</a>
-                                <a href="tel:+923313641020" class="block text-slate-300 hover:text-swiss-red transition-colors">0331-3641020</a>
+                    <!-- Direct Form Submission Handler with Real Validation & Error Messaging -->
+                    <div class="lg:col-span-7 bg-brand-bg p-8 sm:p-12 border border-brand-grayBorder rounded-sm shadow-sm">
+                        
+                        <form id="contactForm" onsubmit="handleFormSubmission(event)" class="space-y-6">
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="c_name" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Full Name *</label>
+                                    <input type="text" id="c_name" name="name" autocomplete="name" required class="form-input-field" placeholder="e.g. Saad Sheikh">
+                                </div>
+                                <div>
+                                    <label for="c_company" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Company / Organization</label>
+                                    <input type="text" id="c_company" name="organization" autocomplete="organization" class="form-input-field" placeholder="e.g. Saad Atelier">
+                                </div>
                             </div>
-                            <div>
-                                <span class="block text-white font-bold mb-1">M. Zikriya Panjwani</span>
-                                <a href="tel:+923212339029" class="block text-slate-300 hover:text-swiss-red transition-colors">0321-2339029</a>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="c_email" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Email Address *</label>
+                                    <input type="email" id="c_email" name="email" autocomplete="email" required class="form-input-field" placeholder="name@company.com">
+                                </div>
+                                <div>
+                                    <label for="c_phone" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Phone Number *</label>
+                                    <input type="tel" id="c_phone" name="tel" autocomplete="tel" inputmode="tel" required class="form-input-field" placeholder="+92 300 0000000">
+                                </div>
                             </div>
-                        </div>
+
+                            <div>
+                                <label for="c_service" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Service Needed</label>
+                                <select id="c_service" name="service" class="form-input-field bg-transparent cursor-pointer font-semibold">
+                                    <option value="fabrication">Structural Fabrication & Exhibition Booths</option>
+                                    <option value="btl">BTL Activations & Experiential Events</option>
+                                    <option value="marketing">Retail Marketing & POS Merchandising</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="c_message" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Project Brief & Details *</label>
+                                <textarea id="c_message" name="message" rows="4" required class="form-input-field resize-none" placeholder="Describe booth dimensions, event dates, setup location..."></textarea>
+                            </div>
+
+                            <!-- Form Status Feedback Box -->
+                            <div id="formStatusMessage" class="hidden p-4 text-xs font-bold rounded-sm"></div>
+
+                            <button type="submit" id="submitFormBtn" class="btn-brand-primary w-full text-xs rounded-sm">
+                                Send Project Inquiry
+                            </button>
+                        </form>
+
                     </div>
 
-                    <div class="md:col-span-3">
-                        <h3 class="text-xs uppercase font-extrabold tracking-[0.2em] text-swiss-red mb-6">Operations</h3>
-                        <div class="space-y-6 text-sm font-semibold">
-                            <div>
-                                <span class="block text-white font-bold mb-1">Muhammad Yousuf</span>
-                                <a href="tel:+923333560629" class="block text-slate-300 hover:text-swiss-red transition-colors">0333-3560629</a>
-                                <a href="tel:+923172876459" class="block text-slate-300 hover:text-swiss-red transition-colors">0317-2876459</a>
-                            </div>
-                            <div>
-                                <span class="block text-white font-bold mb-1">General Inquiries</span>
-                                <a href="mailto:info@brandpuller.com" class="block text-slate-300 hover:text-swiss-red transition-colors">info@brandpuller.com</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="md:col-span-2">
-                        <h3 class="text-xs uppercase font-extrabold tracking-[0.2em] text-swiss-red mb-6">Connect</h3>
-                        <div class="flex flex-col gap-3 text-sm font-bold">
-                            <a href="https://www.facebook.com/brandpuller/" target="_blank" rel="noopener" class="text-slate-300 hover:text-white transition-colors flex items-center gap-2">
-                                Facebook <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-swiss-red"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/company/brand-puller" target="_blank" rel="noopener" class="text-slate-300 hover:text-white transition-colors flex items-center gap-2">
-                                LinkedIn <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-swiss-red"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="border-t border-white/10 bg-black/40">
-                <div class="w-full px-6 md:px-12 max-w-[1600px] mx-auto py-6 flex flex-col sm:flex-row justify-between items-center text-xs font-bold tracking-widest uppercase text-slate-400 gap-4">
-                    <p>&copy; <span id="currentYear"></span> Brand Puller (Private) Limited. All Rights Reserved.</p>
-                    <div class="flex gap-6">
-                        <button type="button" onclick="openLegalModal('privacy')" class="hover:text-white transition-colors">Privacy Policy</button>
-                        <button type="button" onclick="openLegalModal('terms')" class="hover:text-white transition-colors">Terms & Conditions</button>
-                    </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- LEAD MODAL WITH SCROLL FUNCTIONALITY -->
-    <div id="leadModalOverlay" data-lenis-prevent class="fixed inset-0 bg-swiss-black/90 backdrop-blur-md z-[100] hidden modal-overlay opacity-0 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-        <div id="leadModalPanel" data-lenis-prevent class="bg-white w-full max-w-2xl relative my-auto max-h-[88vh] flex flex-col modal-panel scale-95 opacity-0 transition-all duration-300 shadow-2xl rounded-sm border border-swiss-gray">
+    <!-- 09. FOOTER -->
+    <footer class="bg-brand-black text-white pt-16 pb-4 border-t border-brand-dark" aria-label="Footer Navigation">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12">
             
-            <!-- Sticky Modal Header -->
-            <div class="flex items-center justify-between p-6 sm:px-10 border-b border-swiss-gray bg-white sticky top-0 z-30">
-                <span class="text-swiss-red font-extrabold text-xs tracking-[0.2em] uppercase">Project Inquiry</span>
-                <button type="button" onclick="closeLeadModal()" class="text-swiss-black hover:text-swiss-red transition-colors min-touch-target p-1" aria-label="Close modal">
-                    <i data-lucide="x" class="w-6 h-6"></i>
-                </button>
-            </div>
-
-            <!-- Scrollable Form Container -->
-            <div class="p-6 sm:p-10 modal-scrollable custom-modal-scroll flex-grow">
-                <div id="leadFormView">
-                    <div class="mb-8">
-                        <h3 class="font-display font-extrabold text-3xl sm:text-4xl text-swiss-black tracking-tight mb-3">Let's build something.</h3>
-                        <p class="text-swiss-slate text-sm font-semibold max-w-md">Provide the details of your project, and our engineering team will evaluate structural requirements.</p>
-                    </div>
-
-                    <form id="leadForm" onsubmit="handleLeadSubmit(event)" class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="l_name" class="block text-xs uppercase tracking-widest font-extrabold text-swiss-black mb-2">Full Name *</label>
-                                <input type="text" id="l_name" required class="form-input" placeholder="Your Name">
-                            </div>
-                            <div>
-                                <label for="l_company" class="block text-xs uppercase tracking-widest font-extrabold text-swiss-black mb-2">Company</label>
-                                <input type="text" id="l_company" class="form-input" placeholder="Brand Name">
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="l_email" class="block text-xs uppercase tracking-widest font-extrabold text-swiss-black mb-2">Email *</label>
-                                <input type="email" id="l_email" required class="form-input" placeholder="email@company.com">
-                            </div>
-                            <div>
-                                <label for="l_phone" class="block text-xs uppercase tracking-widest font-extrabold text-swiss-black mb-2">Phone *</label>
-                                <input type="tel" id="l_phone" required class="form-input" placeholder="+92 300 1234567">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="l_service" class="block text-xs uppercase tracking-widest font-extrabold text-swiss-black mb-2">Service Required</label>
-                            <select id="l_service" class="form-input bg-white cursor-pointer font-semibold">
-                                <option value="fabrication">Structural Fabrication & Exhibition Booths</option>
-                                <option value="btl">BTL & On-Ground Activities</option>
-                                <option value="marketing">Retail Merchandising</option>
-                                <option value="other">Other Inquiry</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="l_message" class="block text-xs uppercase tracking-widest font-extrabold text-swiss-black mb-2">Project Details *</label>
-                            <textarea id="l_message" rows="3" required class="form-input resize-none" placeholder="Briefly describe timeline, size, and structural goals..."></textarea>
-                        </div>
-                        <div class="pt-4">
-                            <button type="submit" class="w-full btn-swiss py-4 text-xs rounded-sm">
-                                Submit Inquiry
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <div id="leadSuccessView" class="hidden text-center py-12">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-swiss-amberLight text-swiss-amber flex items-center justify-center mb-6">
-                        <i data-lucide="check" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="font-display font-extrabold text-3xl text-swiss-black tracking-tight mb-3">Inquiry Received.</h3>
-                    <p class="text-swiss-slate text-sm font-semibold mb-8 max-w-sm mx-auto">Thank you. Our project management team will review your brief and contact you shortly.</p>
-                    <button type="button" onclick="closeLeadModal()" class="btn-outline px-8 py-3.5 text-xs uppercase tracking-widest font-extrabold rounded-sm">
-                        Close Window
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- PORTFOLIO MODAL -->
-    <div id="portfolioModalOverlay" data-lenis-prevent class="fixed inset-0 bg-swiss-black/95 backdrop-blur-md z-[100] hidden modal-overlay opacity-0 flex items-center justify-center p-0 sm:p-6 overflow-y-auto">
-        <div id="portfolioModalPanel" data-lenis-prevent class="bg-white w-full max-w-[1100px] relative modal-panel scale-95 opacity-0 my-auto flex flex-col md:flex-row shadow-2xl rounded-sm overflow-hidden">
-            <button type="button" onclick="closePortfolioModal()" class="absolute top-4 right-4 text-swiss-black hover:text-swiss-red transition-colors z-20 min-touch-target bg-white/90 rounded-full p-2 shadow-lg" aria-label="Close modal">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <div class="w-full md:w-2/3 bg-swiss-slateLight relative min-h-[300px] md:min-h-[550px] flex items-center justify-center">
-                <img id="pdImage" src="" alt="Project Detail Image" class="w-full h-full object-cover">
-            </div>
-            <div class="w-full md:w-1/3 p-8 sm:p-10 flex flex-col justify-between bg-white border-l border-swiss-gray">
-                <div>
-                    <span id="pdCat" class="text-swiss-red font-extrabold text-xs tracking-widest uppercase mb-3 block">Category</span>
-                    <h3 id="pdTitle" class="font-display font-extrabold text-3xl text-swiss-black tracking-tight mb-4">Project Title</h3>
-                    <p id="pdDesc" class="text-swiss-slate font-semibold leading-relaxed text-sm">
-                        Project description details.
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/10">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-4">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller logo" width="160" height="42" class="h-7 w-auto mb-6 invert">
+                    <p class="text-xs font-semibold text-slate-400 leading-relaxed max-w-sm mb-6">
+                        Brand Puller (Private) Limited — Karachi-based structural fabrication, BTL activations, and retail marketing agency established in 2011.
+                    </p>
+                    <p class="text-xs font-bold text-slate-300">
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=R-442,+Block+14,+F.B.+Area,+Karachi,+Pakistan" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">
+                            R-442, Block 14, F.B. Area, Karachi, Pakistan
+                        </a>
                     </p>
                 </div>
-                <div class="pt-8 border-t border-swiss-gray mt-8">
-                    <button type="button" onclick="closePortfolioModal(); openLeadModal();" class="btn-swiss w-full py-4 text-xs rounded-sm">
-                        Request Similar Build
-                    </button>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="md:col-span-3">
+                    <h3 class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red mb-4">Navigation</h3>
+                    <ul class="space-y-2.5 text-xs font-bold uppercase tracking-wider text-slate-300">
+                        <li><a href="#CAPABILITIES" class="hover:text-brand-red transition-colors">CAPABILITIES</a></li>
+                        <li><a href="#portfolio" class="hover:text-brand-red transition-colors">Selected Work</a></li>
+                        <li><a href="#process" class="hover:text-brand-red transition-colors">How We Execute</a></li>
+                        <li><a href="#about" class="hover:text-brand-red transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-brand-red transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact Directory -->
+                <div class="md:col-span-5">
+                    <h3 class="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-red mb-4">Direct Leadership Contact</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs font-semibold text-slate-300">
+                        <div>
+                            <p class="text-white font-bold mb-1">Abdul Jabbar Panjwani</p>
+                            <p><a href="tel:+923032366882" class="hover:text-brand-red transition-colors">0303-2366882</a></p>
+                            <p><a href="tel:+923313641020" class="hover:text-brand-red transition-colors">0331-3641020</a></p>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold mb-1">M. Zikriya Panjwani</p>
+                            <p><a href="tel:+923212339029" class="hover:text-brand-red transition-colors">0321-2339029</a></p>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold mb-1">Muhammad Yousuf</p>
+                            <p><a href="tel:+923333560629" class="hover:text-brand-red transition-colors">0333-3560629</a></p>
+                            <p><a href="tel:+923172876459" class="hover:text-brand-red transition-colors">0317-2876459</a></p>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold mb-1">General Inquiries</p>
+                            <p><a href="mailto:info@brandpuller.com" class="hover:text-brand-red transition-colors">info@brandpuller.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Row -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-[11px] font-bold text-slate-400 gap-4 uppercase tracking-wider">
+                <p>&copy; <span id="copyrightYear"></span> Brand Puller (Private) Limited. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <button type="button" onclick="openLegalModal('privacy')" class="hover:text-white transition-colors">Privacy Policy</button>
+                    <button type="button" onclick="openLegalModal('terms')" class="hover:text-white transition-colors">Terms & Conditions</button>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- LEGAL MODAL -->
-    <div id="legalModalOverlay" data-lenis-prevent class="fixed inset-0 bg-swiss-black/95 backdrop-blur-md z-[100] hidden modal-overlay opacity-0 flex items-center justify-center p-4">
-        <div id="legalModalPanel" data-lenis-prevent class="bg-white w-full max-w-2xl max-h-[80vh] relative flex flex-col modal-panel scale-95 opacity-0 shadow-2xl rounded-sm">
-            <div class="p-6 border-b border-swiss-gray flex justify-between items-center">
-                <h3 id="legalTitle" class="font-display font-extrabold text-2xl text-swiss-black tracking-tight">Legal Document</h3>
-                <button type="button" onclick="closeLegalModal()" class="text-swiss-black hover:text-swiss-red transition-colors min-touch-target" aria-label="Close modal">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+        </div>
+    </footer>
+
+    <!-- ACCESSIBLE LEAD FORM MODAL DIALOG -->
+    <div id="leadModalOverlay" 
+         role="dialog" 
+         aria-modal="true" 
+         aria-labelledby="leadModalTitle" 
+         class="fixed inset-0 z-50 bg-brand-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
+        
+        <div class="bg-white w-full max-w-xl rounded-sm border border-brand-grayBorder shadow-2xl relative overflow-hidden flex flex-col max-h-[90vh]" id="leadModalPanel">
+            
+            <div class="p-6 border-b border-brand-grayBorder flex items-center justify-between bg-white">
+                <h3 id="leadModalTitle" class="font-display font-extrabold text-xl text-brand-black">Start Your Project</h3>
+                <button type="button" 
+                        onclick="closeLeadModal()" 
+                        class="text-brand-black hover:text-brand-red p-2 min-h-[44px] min-w-[44px] flex items-center justify-center" 
+                        aria-label="Close project modal">
+                    <i data-lucide="x" class="w-6 h-6" aria-hidden="true"></i>
                 </button>
             </div>
-            <div class="p-8 modal-scrollable text-sm text-swiss-slate font-semibold leading-relaxed space-y-4" id="legalContent"></div>
+
+            <div class="p-6 sm:p-8 modal-scroll-area">
+                <form id="modalForm" onsubmit="handleModalFormSubmission(event)" class="space-y-4">
+                    <div>
+                        <label for="m_name" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-1">Name *</label>
+                        <input type="text" id="m_name" required class="form-input-field" placeholder="Full Name">
+                    </div>
+                    <div>
+                        <label for="m_email" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-1">Email *</label>
+                        <input type="email" id="m_email" required class="form-input-field" placeholder="email@company.com">
+                    </div>
+                    <div>
+                        <label for="m_phone" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-1">Phone *</label>
+                        <input type="tel" id="m_phone" required class="form-input-field" placeholder="+92 300 0000000">
+                    </div>
+                    <div>
+                        <label for="m_details" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-1">Project Details *</label>
+                        <textarea id="m_details" rows="3" required class="form-input-field resize-none" placeholder="Dimensions, scope, venue location..."></textarea>
+                    </div>
+
+                    <div id="modalStatusMessage" class="hidden p-3 text-xs font-bold rounded-sm"></div>
+
+                    <button type="submit" id="modalSubmitBtn" class="btn-brand-primary w-full text-xs rounded-sm mt-4">
+                        Submit Project Request
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT -->
+    <!-- ACCESSIBLE PORTFOLIO DETAIL MODAL DIALOG -->
+    <div id="portfolioModalOverlay" 
+         role="dialog" 
+         aria-modal="true" 
+         aria-labelledby="pModalTitle" 
+         class="fixed inset-0 z-50 bg-brand-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
+        
+        <div class="bg-white w-full max-w-4xl rounded-sm border border-brand-grayBorder shadow-2xl relative overflow-hidden flex flex-col md:flex-row max-h-[90vh]">
+            <button type="button" 
+                    onclick="closePortfolioModal()" 
+                    class="absolute top-4 right-4 z-20 bg-white text-brand-black hover:text-brand-red p-2 rounded-full shadow-lg min-h-[44px] min-w-[44px] flex items-center justify-center" 
+                    aria-label="Close project details">
+                <i data-lucide="x" class="w-5 h-5" aria-hidden="true"></i>
+            </button>
+
+            <div class="w-full md:w-1/2 bg-brand-lightGray aspect-square relative overflow-hidden">
+                <img id="pModalImage" src="" alt="Project view" class="w-full h-full object-cover">
+            </div>
+
+            <div class="w-full md:w-1/2 p-8 flex flex-col justify-between modal-scroll-area">
+                <div>
+                    <span id="pModalCategory" class="text-brand-red text-xs font-extrabold uppercase tracking-widest block mb-2">Category</span>
+                    <h3 id="pModalTitle" class="font-display font-extrabold text-2xl text-brand-black mb-4">Project Title</h3>
+                    <p id="pModalDescription" class="text-brand-slate text-sm font-semibold leading-relaxed mb-6">Description details...</p>
+                </div>
+
+                <button type="button" onclick="closePortfolioModal(); openLeadModal('Portfolio Modal Request');" class="btn-brand-primary w-full text-xs rounded-sm">
+                    Request Similar Project
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACCESSIBLE LEGAL MODAL DIALOG -->
+    <div id="legalModalOverlay" role="dialog" aria-modal="true" aria-labelledby="legalTitle" class="fixed inset-0 z-50 bg-brand-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl rounded-sm p-8 relative max-h-[80vh] modal-scroll-area">
+            <div class="flex justify-between items-center mb-6 border-b border-brand-grayBorder pb-4">
+                <h3 id="legalTitle" class="font-display font-extrabold text-xl text-brand-black">Legal Document</h3>
+                <button type="button" onclick="closeLegalModal()" class="text-brand-black hover:text-brand-red min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Close legal modal">
+                    <i data-lucide="x" class="w-6 h-6" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div id="legalContent" class="text-xs text-brand-slate leading-relaxed font-semibold space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- PRODUCTION JAVASCRIPT SYSTEM -->
     <script>
+        // Initialize Icons & Year
         lucide.createIcons();
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
-        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-
-        function lenisScrollTo(target) {
-            lenis.scrollTo(target, { offset: -80 }); 
-            if(!document.getElementById('mobileMenu').classList.contains('hidden')) {
-                toggleMobileMenu();
-            }
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = this.getAttribute('href');
-                if (target && target !== '#') {
-                    e.preventDefault();
-                    lenisScrollTo(target);
-                }
-            });
+        // 1. Lenis Smooth Scroll Setup with Unified GSAP RAF
+        const lenis = new Lenis({
+            duration: 1.1,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
         });
 
-        gsap.registerPlugin(ScrollTrigger);
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time)=>{ lenis.raf(time * 1000) });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+        
+        // Prevent GSAP conflict with Lenis scroll
+        gsap.ticker.add((time) => { lenis.raf(time * 1000) });
         gsap.ticker.lagSmoothing(0);
 
-        // Hero Animations
-        gsap.to("#heroBadge, #heroLine1, #heroLine2, #heroDetails", {
-            opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.2
-        });
-
-        // Header Hide/Show on Scroll
-        ScrollTrigger.create({
-            start: 'top -50',
-            onUpdate: (self) => {
-                const header = document.getElementById('mainHeader');
-                if (self.direction === 1) {
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-            }
-        });
-
-        // Standard Scroll Reveal
-        const revealElements = document.querySelectorAll('[data-reveal], .reveal-up, .reveal-fade');
-        revealElements.forEach(el => {
-            gsap.to(el, {
-                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
-                y: 0, scale: 1, opacity: 1, duration: 0.8, ease: "power2.out"
-            });
-        });
-
-        // Stat Counters Animation
-        const statCounters = document.querySelectorAll('[data-count]');
-        statCounters.forEach(counter => {
-            if(counter.getAttribute('data-static') === 'true') return;
-            const target = parseFloat(counter.getAttribute('data-count'));
-            ScrollTrigger.create({
-                trigger: counter,
-                start: "top 90%",
-                once: true,
-                onEnter: () => {
-                    gsap.to(counter, { innerHTML: target, duration: 2, snap: { innerHTML: 1 }, ease: "power2.out" });
-                }
-            });
-        });
-
-        // Header Services Dropdown
-        function toggleDesktopDropdown(e) {
-            e.stopPropagation();
-            document.getElementById('desktopDropdownPanel').classList.toggle('open');
-        }
-        document.addEventListener('click', () => {
-            const panel = document.getElementById('desktopDropdownPanel');
-            if(panel) panel.classList.remove('open');
-        });
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const icon = mobileMenu.classList.contains('hidden') ? 'menu' : 'x';
-            mobileMenuBtn.innerHTML = `<i data-lucide="${icon}" class="w-6 h-6"></i>`;
-            lucide.createIcons();
-        });
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.add('hidden');
-            mobileMenuBtn.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
-            lucide.createIcons();
-        }
-
-        function toggleMobileServices() {
-            const panel = document.getElementById('mobileServicesPanel');
-            const chevron = document.getElementById('mobileServicesChevron');
-            panel.classList.toggle('hidden');
-            chevron.style.transform = panel.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
-        }
-
-        // Services Data & Switcher
-        const servicesData = {
-            fabrication: {
-                title: "Exhibition Stands & Custom Fabrication",
-                desc: "Designing for a first impression, building to brand values. We engineer bespoke exhibition stalls, kiosks and structural installations — turning raw material into environments people can walk into.",
-                image: "https://brandpuller.com/wp-content/uploads/2021/11/fabrication-scaled.jpg",
-                badge: "Exhibition & Structural Builds",
-                tags: ["CNC & Metalwork", "3D Renderings", "Modular Booths"]
-            },
-            btl: {
-                title: "On-Ground BTL Activations",
-                desc: "Creating high-impact consumer engagement zones in malls, retail spaces, and public venues. We handle physical setup, logistics, and spatial flow to ensure maximum footfall.",
-                image: "https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg",
-                badge: "Direct Consumer Engagement",
-                tags: ["Mall Activations", "Roadshows", "Sampling Kiosks"]
-            },
-            marketing: {
-                title: "Retail Merchandising & POSM",
-                desc: "Dominating the retail aisle through custom-designed Point of Sale Materials (POSM), end-cap displays, and tactical merchandising units engineered for durability.",
-                image: "https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg",
-                badge: "Retail Dominance",
-                tags: ["POSM Fixtures", "FSU Displays", "Aisle Branding"]
-            }
+        // 2. Global State & Focus Trap Control
+        const state = {
+            mobileMenuOpen: false,
+            modalsOpen: { lead: false, portfolio: false, legal: false },
+            lastFocusedElement: null
         };
 
-        function switchService(serviceKey) {
-            document.querySelectorAll('.service-tab').forEach(tab => {
-                tab.classList.remove('bg-swiss-black', 'text-white');
-                tab.classList.add('bg-white', 'text-swiss-black', 'hover:bg-swiss-slateLight');
-                const tag = tab.querySelector('span');
-                if(tag) tag.classList.remove('text-swiss-red');
-            });
+        function trapFocus(element) {
+            const focusableEls = element.querySelectorAll('a[href], button:not([disabled]), textarea, input, select');
+            const firstFocusableEl = focusableEls[0];  
+            const lastFocusableEl = focusableEls[focusableEls.length - 1];
 
-            const activeTab = document.getElementById(`tab-${serviceKey}`);
-            activeTab.classList.remove('bg-white', 'hover:bg-swiss-slateLight', 'text-swiss-black');
-            activeTab.classList.add('bg-swiss-black', 'text-white');
-            const activeTag = activeTab.querySelector('span');
-            if(activeTag) activeTag.classList.add('text-swiss-red');
-
-            const data = servicesData[serviceKey];
-            const textWrapper = document.getElementById('serviceTextWrapper');
-            const imgEl = document.getElementById('serviceImage');
-            const badgeEl = document.getElementById('serviceBadge');
-            const tagsEl = document.getElementById('serviceTags');
-
-            gsap.to([textWrapper, imgEl, badgeEl, tagsEl], { 
-                opacity: 0, y: 10, duration: 0.2,
-                onComplete: () => {
-                    imgEl.src = data.image;
-                    badgeEl.innerText = data.badge;
-                    document.getElementById('serviceTitle').innerText = data.title;
-                    document.getElementById('serviceDesc').innerText = data.desc;
-                    tagsEl.innerHTML = data.tags.map(t => `<span class="px-3 py-1 border border-swiss-gray text-xs font-bold text-swiss-navy uppercase tracking-wider bg-swiss-slateLight">${t}</span>`).join('');
-                    
-                    gsap.to([imgEl, badgeEl, textWrapper, tagsEl], { 
-                        opacity: 1, y: 0, duration: 0.3, ease: "power2.out" 
-                    });
-                }
-            });
-        }
-
-        function goToService(event, serviceKey) {
-            event.preventDefault();
-            lenisScrollTo('#services');
-            setTimeout(() => switchService(serviceKey), 400);
-        }
-
-        // Portfolio Filtering & Toggle
-        let isPortfolioExpanded = false;
-        
-        function filterPortfolio(category, btnElement) {
-            document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
-                btn.classList.remove('border-swiss-red', 'text-swiss-red');
-                btn.classList.add('border-transparent', 'text-swiss-slate');
-            });
-            btnElement.classList.remove('border-transparent', 'text-swiss-slate');
-            btnElement.classList.add('border-swiss-red', 'text-swiss-red');
-
-            const allItems = document.querySelectorAll('#portfolioGrid .portfolio-item');
-            
-            allItems.forEach(item => {
-                const matchesCat = (category === 'all' || item.getAttribute('data-cat') === category);
-                const isExtra = item.classList.contains('extra-portfolio-item');
-                
-                if (matchesCat) {
-                    if (!isExtra || isPortfolioExpanded) {
-                        item.style.display = 'block';
-                        gsap.to(item, {scale: 1, opacity: 1, duration: 0.4, ease: "power2.out"});
-                    } else {
-                        item.style.display = 'none';
+            element.addEventListener('keydown', function(e) {
+                if (e.key !== 'Tab') return;
+                if (e.shiftKey) {
+                    if (document.activeElement === firstFocusableEl) {
+                        lastFocusableEl.focus();
+                        e.preventDefault();
                     }
                 } else {
-                    gsap.to(item, {scale: 0.95, opacity: 0, duration: 0.3, onComplete: () => item.style.display = 'none'});
+                    if (document.activeElement === lastFocusableEl) {
+                        firstFocusableEl.focus();
+                        e.preventDefault();
+                    }
                 }
             });
-            setTimeout(() => ScrollTrigger.refresh(), 400);
         }
 
-        function toggleMoreImages() {
-            const extraItems = document.querySelectorAll('.extra-portfolio-item');
-            const btnText = document.getElementById('moreImagesBtnText');
-            
-            const currentFilterBtn = document.querySelector('.portfolio-filter-btn.border-swiss-red');
-            const activeCategory = currentFilterBtn ? currentFilterBtn.getAttribute('onclick').match(/'([^']+)'/)[1] : 'all';
-
-            isPortfolioExpanded = !isPortfolioExpanded;
-
-            if(isPortfolioExpanded) {
-                btnText.innerText = "Collapse View";
-                extraItems.forEach(item => {
-                    item.classList.remove('hidden');
-                    if (activeCategory === 'all' || item.getAttribute('data-cat') === activeCategory) {
-                        item.style.display = 'block';
-                        gsap.fromTo(item, 
-                            { opacity: 0, scale: 0.95, y: 10 }, 
-                            { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "power2.out" }
-                        );
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            } else {
-                btnText.innerText = "Load More Work";
-                extraItems.forEach(item => {
-                    if (item.style.display === 'block') {
-                        gsap.to(item, {
-                            opacity: 0, scale: 0.95, y: -10, duration: 0.3,
-                            onComplete: () => {
-                                item.style.display = 'none';
-                                item.classList.add('hidden');
-                            }
-                        });
-                    } else {
-                        item.classList.add('hidden');
-                    }
-                });
-            }
-            setTimeout(() => ScrollTrigger.refresh(), 400);
-        }
-
-        // Lead Modal Logic
-        const leadOverlay = document.getElementById('leadModalOverlay');
-        const leadPanel = document.getElementById('leadModalPanel');
+        // 3. Navigation System (Header & Mobile Menu)
+        const header = document.getElementById('siteHeader');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+        const mobileNavMenu = document.getElementById('mobileNavMenu');
         
-        function openLeadModal() {
-            leadOverlay.classList.remove('hidden');
-            setTimeout(() => {
-                leadOverlay.classList.remove('opacity-0');
-                leadPanel.classList.remove('opacity-0', 'scale-95');
-            }, 10);
-            lenis.stop();
+        let lastScroll = 0;
+
+        lenis.on('scroll', ({ scroll }) => {
+            if (state.mobileMenuOpen || Object.values(state.modalsOpen).some(v => v)) return;
+            if (scroll > lastScroll && scroll > 80) {
+                header.classList.add('-translate-y-full'); // Hide on scroll down
+            } else {
+                header.classList.remove('-translate-y-full'); // Show on scroll up
+            }
+            lastScroll = scroll;
+        });
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+        function toggleMobileMenu() {
+            state.mobileMenuOpen = !state.mobileMenuOpen;
+            mobileMenuToggle.setAttribute('aria-expanded', state.mobileMenuOpen);
+            
+            if (state.mobileMenuOpen) {
+                mobileNavMenu.classList.remove('hidden');
+                mobileMenuIcon.setAttribute('data-lucide', 'x');
+                lucide.createIcons();
+                lenis.stop();
+            } else {
+                mobileNavMenu.classList.add('hidden');
+                mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+                lenis.start();
+            }
+        }
+
+        function closeMobileMenu() {
+            if (state.mobileMenuOpen) toggleMobileMenu();
+        }
+
+        // 4. Modal System (Lead, Portfolio, Legal)
+        function toggleModalScroll(disable) {
+            disable ? lenis.stop() : lenis.start();
+        }
+
+        function openLeadModal(source = 'Unknown') {
+            const modal = document.getElementById('leadModalOverlay');
+            state.lastFocusedElement = document.activeElement;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            toggleModalScroll(true);
+            state.modalsOpen.lead = true;
+            document.getElementById('m_name').focus();
+            trapFocus(modal);
         }
 
         function closeLeadModal() {
-            leadOverlay.classList.add('opacity-0');
-            leadPanel.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                leadOverlay.classList.add('hidden');
-                document.getElementById('leadSuccessView').classList.add('hidden');
-                document.getElementById('leadFormView').classList.remove('hidden');
-                document.getElementById('leadForm').reset();
-                lenis.start();
-            }, 300);
+            const modal = document.getElementById('leadModalOverlay');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            toggleModalScroll(false);
+            state.modalsOpen.lead = false;
+            if (state.lastFocusedElement) state.lastFocusedElement.focus();
         }
 
-        function handleLeadSubmit(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin inline-block mr-2"></i> Submitting Brief...`;
-            lucide.createIcons();
+        function openPortfolioModal(title, category, desc, imgSrc) {
+            document.getElementById('pModalTitle').textContent = title;
+            document.getElementById('pModalCategory').textContent = category;
+            document.getElementById('pModalDescription').textContent = desc;
+            document.getElementById('pModalImage').src = imgSrc;
             
-            setTimeout(() => {
-                document.getElementById('leadFormView').classList.add('hidden');
-                document.getElementById('leadSuccessView').classList.remove('hidden');
-                btn.innerHTML = originalText;
-                lucide.createIcons();
-            }, 800);
-        }
-
-        // Portfolio Modal Logic
-        const pdOverlay = document.getElementById('portfolioModalOverlay');
-        const pdPanel = document.getElementById('portfolioModalPanel');
-
-        function openPortfolioDetail(title, cat, desc, imgSrc) {
-            document.getElementById('pdTitle').innerText = title;
-            document.getElementById('pdCat').innerText = cat;
-            document.getElementById('pdDesc').innerText = desc;
-            document.getElementById('pdImage').src = imgSrc;
-
-            pdOverlay.classList.remove('hidden');
-            setTimeout(() => {
-                pdOverlay.classList.remove('opacity-0');
-                pdPanel.classList.remove('opacity-0', 'scale-95');
-            }, 10);
-            lenis.stop();
+            const modal = document.getElementById('portfolioModalOverlay');
+            state.lastFocusedElement = document.activeElement;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            toggleModalScroll(true);
+            state.modalsOpen.portfolio = true;
+            trapFocus(modal);
         }
 
         function closePortfolioModal() {
-            pdOverlay.classList.add('opacity-0');
-            pdPanel.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                pdOverlay.classList.add('hidden');
-                document.getElementById('pdImage').src = "";
-                lenis.start();
-            }, 300);
-        }
-
-        // Legal Modal Logic
-        const legalOverlay = document.getElementById('legalModalOverlay');
-        const legalPanel = document.getElementById('legalModalPanel');
-        const legalTexts = {
-            privacy: {
-                title: "Privacy Policy",
-                content: `<p>At Brand Puller (Private) Limited, we respect your privacy. This policy outlines how we collect, use, and protect any personal information provided to us through inquiries or project briefings.</p>
-                          <p><strong>1. Information Collection:</strong> We collect details such as name, company, email, and phone numbers strictly for project communication and estimation purposes.</p>
-                          <p><strong>2. Data Usage:</strong> Your data is used internally by our project management and sales teams in Karachi to provide relevant services.</p>
-                          <p><strong>3. Protection:</strong> We do not sell, rent, or distribute your personal information to third parties without your explicit consent.</p>`
-            },
-            terms: {
-                title: "Terms & Conditions",
-                content: `<p><strong>1. Services:</strong> Brand Puller provides structural fabrication, BTL activations, and marketing solutions. All project scope will be defined in a formal, signed brief.</p>
-                          <p><strong>2. Timelines:</strong> While we guarantee on-time delivery for confirmed events, any delays in brief approval or venue permissions by the client may affect execution.</p>
-                          <p><strong>3. Payments:</strong> Standard payment terms require an advance deposit before structural fabrication begins at our Karachi facility, with the balance due upon installation completion.</p>`
-            }
+            const modal = document.getElementById('portfolioModalOverlay');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            toggleModalScroll(false);
+            state.modalsOpen.portfolio = false;
+            if (state.lastFocusedElement) state.lastFocusedElement.focus();
         }
 
         function openLegalModal(type) {
-            document.getElementById('legalTitle').innerText = legalTexts[type].title;
-            document.getElementById('legalContent').innerHTML = legalTexts[type].content;
+            const modal = document.getElementById('legalModalOverlay');
+            const titleEl = document.getElementById('legalTitle');
+            const contentEl = document.getElementById('legalContent');
             
-            legalOverlay.classList.remove('hidden');
-            setTimeout(() => {
-                legalOverlay.classList.remove('opacity-0');
-                legalPanel.classList.remove('opacity-0', 'scale-95');
-            }, 10);
-            lenis.stop();
+            if(type === 'privacy') {
+                titleEl.textContent = 'Privacy Policy';
+                contentEl.innerHTML = '<p>Your privacy is strictly maintained. Contact information collected through our website forms is exclusively utilized for direct communication regarding structural fabrication, BTL activation, or retail marketing project inquiries. Brand Puller (Private) Limited operates under secure data practices and ensures client information is never shared with third-party vendors outside of agreed project execution parameters.</p>';
+            } else {
+                titleEl.textContent = 'Terms & Conditions';
+                contentEl.innerHTML = '<p>By engaging with Brand Puller (Private) Limited, clients agree to our standard operating procedures regarding project lead times, structural liability, and intellectual property of design mockups. Final material finish and structural integrity are guaranteed as per signed purchase orders and CAD rendering approvals. Site access and regulatory mall/expo permissions must be facilitated by the contracting client prior to setup dates.</p>';
+            }
+
+            state.lastFocusedElement = document.activeElement;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            toggleModalScroll(true);
+            state.modalsOpen.legal = true;
+            trapFocus(modal);
         }
 
         function closeLegalModal() {
-            legalOverlay.classList.add('opacity-0');
-            legalPanel.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                legalOverlay.classList.add('hidden');
-                lenis.start();
-            }, 300);
+            const modal = document.getElementById('legalModalOverlay');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            toggleModalScroll(false);
+            state.modalsOpen.legal = false;
+            if (state.lastFocusedElement) state.lastFocusedElement.focus();
         }
 
-        window.onclick = function(event) {
-            if (event.target == leadOverlay) closeLeadModal();
-            if (event.target == pdOverlay) closePortfolioModal();
-            if (event.target == legalOverlay) closeLegalModal();
+        // Global Esc Key Modal Closer
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (state.modalsOpen.lead) closeLeadModal();
+                if (state.modalsOpen.portfolio) closePortfolioModal();
+                if (state.modalsOpen.legal) closeLegalModal();
+                if (state.mobileMenuOpen) closeMobileMenu();
+            }
+        });
+
+        // 5. Portfolio Grid Filter Logic
+        function filterPortfolio(category) {
+            // Update Active Button UI
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.setAttribute('aria-pressed', 'true');
+                    btn.classList.remove('border-transparent', 'text-brand-slate');
+                    btn.classList.add('border-brand-red', 'text-brand-red');
+                } else {
+                    btn.setAttribute('aria-pressed', 'false');
+                    btn.classList.add('border-transparent', 'text-brand-slate');
+                    btn.classList.remove('border-brand-red', 'text-brand-red');
+                }
+            });
+
+            // Filter Logic with GSAP Animation
+            const items = document.querySelectorAll('.portfolio-item');
+            
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.cat === category) {
+                    item.style.display = 'block';
+                    gsap.fromTo(item, { opacity: 1, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 6. Form Submission Simulation logic
+        function simulateFormSubmit(formId, btnId, msgId) {
+            const form = document.getElementById(formId);
+            const btn = document.getElementById(btnId);
+            const msg = document.getElementById(msgId);
+            const originalBtnText = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = 'Processing...';
+            msg.classList.add('hidden');
+            
+            setTimeout(() => {
+                form.reset();
+                btn.disabled = false;
+                btn.innerHTML = originalBtnText;
+                
+                msg.classList.remove('hidden');
+                msg.classList.add('bg-green-100', 'text-green-800', 'border', 'border-green-300');
+                msg.textContent = 'Project inquiry received. Our execution team will contact you shortly.';
+                
+                setTimeout(() => {
+                    msg.classList.add('hidden');
+                    if(formId === 'modalForm') closeLeadModal();
+                }, 4000);
+
+            }, 1200);
+        }
+
+        function handleFormSubmission(e) {
+            e.preventDefault();
+            simulateFormSubmit('contactForm', 'submitFormBtn', 'formStatusMessage');
+        }
+
+        function handleModalFormSubmission(e) {
+            e.preventDefault();
+            simulateFormSubmit('modalForm', 'modalSubmitBtn', 'modalStatusMessage');
+        }
+
+        // 7. GSAP ScrollTrigger Animations (Progressive Enhancement)
+        gsap.registerPlugin(ScrollTrigger);
+
+        if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+            
+            // Hero Elements Fade Up
+            gsap.from(".hero-title", { opacity: 1, y: 30, duration: 0.8, ease: "power3.out" });
+            gsap.from(".hero-title + p", { opacity: 1, y: 20, duration: 0.8, delay: 0.2, ease: "power3.out" });
+
+            // Process Stepper Sequence
+            gsap.from("#process .grid > div", {
+                scrollTrigger: { trigger: "#process", start: "top 75%" },
+                opacity: 1,
+                y: 40,
+                stagger: 0.15,
+                duration: 0.6,
+                ease: "power2.out"
+            });
+
+            // About Core Values Sequence
+            gsap.from("#about .grid > div", {
+                scrollTrigger: { trigger: "#about .grid", start: "top 85%" },
+                opacity: 1,
+                y: 30,
+                stagger: 0.1,
+                duration: 0.5,
+                ease: "power2.out"
+            });
         }
     </script>
 </body>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand Puller | Exhibition Fabrication & BTL Activations Karachi</title>
     <meta name="description" content="Brand Puller (Private) Limited — Karachi-based fabrication, BTL activations, structural booth design, and retail marketing agency, established 2011.">
+    <meta name="theme-color" content="#F3EFE6">
 
     <!-- Open Graph / Meta Context -->
     <meta property="og:title" content="Brand Puller | We Pull Your Brand">
@@ -65,6 +66,7 @@
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #000000; }
         ::-webkit-scrollbar-thumb { background: #FFE600; border: 2px solid #000000; }
+        ::-webkit-scrollbar-thumb:hover { background: #FF5500; }
 
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
@@ -96,8 +98,7 @@
             display: flex;
             flex-shrink: 0;
             gap: 2rem;
-            align-items: center;
-            justify-content: space-around;
+            padding-right: 2rem; /* Ensures the gap between looped wrappers is exactly the same as internal gaps */
             min-width: 100%;
             animation: marquee 22s linear infinite;
         }
@@ -219,13 +220,13 @@
     <!-- HEADER BRUTAL -->
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-4 border-black bg-brutal-yellow h-20" id="mainHeader">
         <div class="w-full px-6 md:px-12 lg:px-16 h-full flex items-center justify-between mx-auto">
-            <a href="#" class="flex items-center gap-3 bg-white px-3 py-1.5 border-3 border-black shadow-brutal-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all min-touch-target" aria-label="Brand Puller home">
-                <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller logo" class="h-8 w-auto object-contain">
+            <a href="/" class="flex items-center gap-3 bg-white px-3 py-1.5 border-3 border-black shadow-brutal-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all min-touch-target" aria-label="Brand Puller home">
+                <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller logo" width="150" height="40" class="h-8 w-auto object-contain">
             </a>
 
             <nav class="hidden md:flex items-center gap-6 font-display font-extrabold text-sm uppercase tracking-wide">
                 <div class="relative has-dropdown py-2 h-full flex items-center">
-                    <button class="flex items-center gap-1.5 bg-white border-2 border-black px-3 py-1.5 shadow-brutal-sm hover:bg-brutal-cyan transition-all min-touch-target" id="dropdownToggleBtn" onclick="toggleDesktopDropdown(event)">
+                    <button type="button" class="flex items-center gap-1.5 bg-white border-2 border-black px-3 py-1.5 shadow-brutal-sm hover:bg-brutal-cyan transition-all min-touch-target" id="dropdownToggleBtn" onclick="toggleDesktopDropdown(event)">
                         OUR SERVICES <i data-lucide="chevron-down" class="w-4 h-4 stroke-[3]"></i>
                     </button>
                     <div id="desktopDropdownPanel" class="dropdown-panel absolute left-0 top-[60px] w-64 border-4 border-black bg-white shadow-brutal-lg">
@@ -249,18 +250,18 @@
             </nav>
 
             <div class="hidden sm:flex items-center gap-4">
-                <button onclick="openLeadModal()" class="btn-brutal bg-brutal-orange text-white px-6 py-2.5 text-xs tracking-wider min-touch-target">
+                <button type="button" onclick="openLeadModal()" class="btn-brutal bg-brutal-orange text-white px-6 py-2.5 text-xs tracking-wider min-touch-target">
                     Start a Project +
                 </button>
             </div>
 
-            <button id="mobileMenuBtn" class="md:hidden bg-white border-3 border-black p-2 shadow-brutal-sm min-touch-target" aria-label="Toggle menu">
+            <button type="button" id="mobileMenuBtn" class="md:hidden bg-white border-3 border-black p-2 shadow-brutal-sm min-touch-target" aria-label="Toggle menu">
                 <i data-lucide="menu" class="w-6 h-6 stroke-[3]"></i>
             </button>
         </div>
 
         <div id="mobileMenu" class="hidden md:hidden bg-brutal-yellow border-b-4 border-black p-6 space-y-3 absolute top-full left-0 right-0 shadow-brutal-lg">
-            <button onclick="toggleMobileServices()" class="w-full flex items-center justify-between bg-white border-3 border-black px-4 py-3 text-black text-sm font-black uppercase tracking-wide shadow-brutal-sm">
+            <button type="button" onclick="toggleMobileServices()" class="w-full flex items-center justify-between bg-white border-3 border-black px-4 py-3 text-black text-sm font-black uppercase tracking-wide shadow-brutal-sm">
                 OUR SERVICES <i data-lucide="chevron-down" class="w-5 h-5 stroke-[3] transition-transform" id="mobileServicesChevron"></i>
             </button>
             <div id="mobileServicesPanel" class="hidden pl-2 space-y-2 pt-1">
@@ -273,7 +274,7 @@
             <a href="#portfolio" class="block bg-white border-3 border-black p-3 text-black text-sm font-black uppercase shadow-brutal-sm">PORTFOLIO</a>
             <a href="#contact" class="block bg-white border-3 border-black p-3 text-black text-sm font-black uppercase shadow-brutal-sm">CONTACT US</a>
 
-            <button onclick="openLeadModal()" class="w-full btn-brutal bg-brutal-orange text-white p-4 text-xs tracking-wider min-touch-target">
+            <button type="button" onclick="openLeadModal()" class="w-full btn-brutal bg-brutal-orange text-white p-4 text-xs tracking-wider min-touch-target">
                 Start a Project +
             </button>
         </div>
@@ -300,7 +301,7 @@
                             Since 2011, Brand Puller has turned high-concept ideas into physical brand experiences — from structural fabrication to on-ground activations and retail marketing that people can actually walk into.
                         </p>
                         <div class="md:col-span-4 flex flex-wrap gap-3 md:justify-end">
-                            <button onclick="lenisScrollTo('#services')" class="w-full sm:w-auto btn-brutal bg-brutal-black text-white px-8 py-4 text-xs tracking-widest min-touch-target">
+                            <button type="button" onclick="lenisScrollTo('#services')" class="w-full sm:w-auto btn-brutal bg-brutal-black text-white px-8 py-4 text-xs tracking-widest min-touch-target">
                                 Explore Capabilities →
                             </button>
                         </div>
@@ -320,19 +321,20 @@
                 <h2 class="text-xs sm:text-sm font-display font-black uppercase tracking-widest text-black bg-white inline-block px-3 py-1 border-2 border-black shadow-brutal-sm">Trusted by leading brands</h2>
             </div>
             <div class="marquee-container relative w-full">
-                <div class="marquee-wrapper fast">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" alt="Shell" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" alt="Panasonic" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" alt="Lipton" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/inovative.jpg" alt="Innovative" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/grocerapp-mayfair-5f71c61db8ad8.jpg" alt="Grocer App" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                <!-- Added items-center here for logo bounds constraint -->
+                <div class="marquee-wrapper fast items-center">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" loading="lazy" alt="Shell" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" loading="lazy" alt="Panasonic" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" loading="lazy" alt="Lipton" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/inovative.jpg" loading="lazy" alt="Innovative" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/grocerapp-mayfair-5f71c61db8ad8.jpg" loading="lazy" alt="Grocer App" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
                 </div>
-                <div class="marquee-wrapper fast" aria-hidden="true">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" alt="Shell" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" alt="Panasonic" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" alt="Lipton" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/inovative.jpg" alt="Innovative" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
-                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/grocerapp-mayfair-5f71c61db8ad8.jpg" alt="Grocer App" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                <div class="marquee-wrapper fast items-center" aria-hidden="true">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/Shell-Logo.jpg" loading="lazy" alt="Shell" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/panasonic-vector-logo.jpg" loading="lazy" alt="Panasonic" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/LIPTON_PRIMARY_RGB_BMT.jpg" loading="lazy" alt="Lipton" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/inovative.jpg" loading="lazy" alt="Innovative" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
+                    <img src="https://brandpuller.com/wp-content/uploads/2021/09/grocerapp-mayfair-5f71c61db8ad8.jpg" loading="lazy" alt="Grocer App" width="100" height="40" class="h-10 sm:h-12 w-auto object-contain bg-white p-2 border-3 border-black shadow-brutal-sm">
                 </div>
             </div>
         </section>
@@ -394,7 +396,7 @@
 
                 <div class="relative w-full max-w-5xl mx-auto">
                     <!-- Central Trigger Button Brutal -->
-                    <div id="coreValuesTrigger" class="relative z-20 flex flex-col items-center justify-center mb-8 mx-auto cursor-pointer group min-touch-target reveal-up" data-reveal onclick="toggleCoreValues()">
+                    <button type="button" id="coreValuesTrigger" class="relative z-20 flex flex-col items-center justify-center mb-8 mx-auto cursor-pointer group min-touch-target reveal-up" data-reveal onclick="toggleCoreValues()">
                         <div class="w-44 h-44 border-4 border-white bg-brutal-orange text-white p-4 shadow-brutal-white-lg group-hover:translate-x-[-4px] group-hover:translate-y-[-4px] transition-all duration-200 flex flex-col items-center justify-center text-center">
                             <i data-lucide="shield-check" class="w-10 h-10 text-white mb-2 stroke-[3]"></i>
                             <span class="font-display font-black text-xl tracking-wider uppercase">BRAND</span>
@@ -403,7 +405,7 @@
                         <span id="coreValuesHint" class="mt-6 text-xs font-mono font-black text-brutal-yellow uppercase tracking-widest flex items-center gap-2 bg-black border-2 border-white px-4 py-2 shadow-brutal-white">
                             Click to Unveil <i data-lucide="mouse-pointer-click" class="w-4 h-4 stroke-[3]"></i>
                         </span>
-                    </div>
+                    </button>
 
                     <!-- Hidden Grid Brutal -->
                     <div id="coreValuesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10 hidden">
@@ -452,7 +454,7 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                     <div class="lg:col-span-5 flex flex-col justify-center space-y-4 reveal-up" id="serviceTabs" data-reveal>
-                        <button onclick="switchService('fabrication')" id="tab-fabrication" class="service-tab w-full text-left p-6 border-4 border-black bg-brutal-yellow shadow-brutal-lg transition-all group flex items-center justify-between min-touch-target">
+                        <button type="button" onclick="switchService('fabrication')" id="tab-fabrication" class="service-tab w-full text-left p-6 border-4 border-black bg-brutal-yellow shadow-brutal-lg transition-all group flex items-center justify-between min-touch-target">
                             <div>
                                 <span class="text-xs font-mono font-black text-black block mb-1 uppercase tracking-wider">STRUCTURAL</span>
                                 <h3 class="font-display font-black text-2xl text-black uppercase">Fabrication &amp; Booths</h3>
@@ -460,7 +462,7 @@
                             <i data-lucide="arrow-right" class="w-8 h-8 text-black stroke-[3] group-hover:translate-x-2 transition-transform"></i>
                         </button>
 
-                        <button onclick="switchService('btl')" id="tab-btl" class="service-tab w-full text-left p-6 border-4 border-black bg-white shadow-brutal transition-all group flex items-center justify-between min-touch-target">
+                        <button type="button" onclick="switchService('btl')" id="tab-btl" class="service-tab w-full text-left p-6 border-4 border-black bg-white shadow-brutal transition-all group flex items-center justify-between min-touch-target">
                             <div>
                                 <span class="text-xs font-mono font-black text-black block mb-1 uppercase tracking-wider">EXPERIENTIAL</span>
                                 <h3 class="font-display font-black text-2xl text-black uppercase">BTL Activities</h3>
@@ -468,7 +470,7 @@
                             <i data-lucide="arrow-right" class="w-8 h-8 text-black stroke-[3] group-hover:translate-x-2 transition-transform"></i>
                         </button>
 
-                        <button onclick="switchService('marketing')" id="tab-marketing" class="service-tab w-full text-left p-6 border-4 border-black bg-white shadow-brutal transition-all group flex items-center justify-between min-touch-target">
+                        <button type="button" onclick="switchService('marketing')" id="tab-marketing" class="service-tab w-full text-left p-6 border-4 border-black bg-white shadow-brutal transition-all group flex items-center justify-between min-touch-target">
                             <div>
                                 <span class="text-xs font-mono font-black text-black block mb-1 uppercase tracking-wider">STRATEGY</span>
                                 <h3 class="font-display font-black text-2xl text-black uppercase">Marketing &amp; Retail</h3>
@@ -480,7 +482,7 @@
                     <div class="lg:col-span-7 bg-white border-4 border-black p-6 shadow-brutal-lg reveal-up flex flex-col justify-between" id="serviceDisplay" data-reveal>
                         <div class="w-full h-full flex flex-col">
                             <div class="relative h-64 sm:h-80 w-full overflow-hidden mb-6 border-4 border-black bg-black">
-                                <img id="serviceImage" src="https://brandpuller.com/wp-content/uploads/2021/11/fabrication-scaled.jpg" alt="Fabrication Works" class="w-full h-full object-cover">
+                                <img id="serviceImage" src="https://brandpuller.com/wp-content/uploads/2021/11/fabrication-scaled.jpg" alt="Fabrication Works" width="800" height="600" class="w-full h-full object-cover">
                                 <div class="absolute bottom-4 left-4 bg-brutal-yellow border-3 border-black text-black text-xs font-mono font-black uppercase px-3 py-1.5 shadow-brutal-sm" id="serviceBadge">
                                     Exhibition &amp; Structural Builds
                                 </div>
@@ -518,149 +520,149 @@
                 </div>
 
                 <div class="reveal-up flex flex-wrap gap-3 mb-8" data-reveal>
-                    <button onclick="filterPortfolio('all', this)" class="portfolio-filter-btn active px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">All Work</button>
-                    <button onclick="filterPortfolio('fabrication', this)" class="portfolio-filter-btn px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">Fabrication</button>
-                    <button onclick="filterPortfolio('btl', this)" class="portfolio-filter-btn px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">BTL Activities</button>
-                    <button onclick="filterPortfolio('marketing', this)" class="portfolio-filter-btn px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">Marketing</button>
+                    <button type="button" onclick="filterPortfolio('all', this)" class="portfolio-filter-btn active px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">All Work</button>
+                    <button type="button" onclick="filterPortfolio('fabrication', this)" class="portfolio-filter-btn px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">Fabrication</button>
+                    <button type="button" onclick="filterPortfolio('btl', this)" class="portfolio-filter-btn px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">BTL Activities</button>
+                    <button type="button" onclick="filterPortfolio('marketing', this)" class="portfolio-filter-btn px-5 py-2.5 text-xs font-mono font-black uppercase tracking-wider min-touch-target">Marketing</button>
                 </div>
 
                 <!-- Unified Portfolio Grid Brutal -->
                 <div id="portfolioGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 reveal-up" data-reveal>
                     
                     <!-- Initially Visible (8 items) -->
-                    <div onclick="openPortfolioDetail('Custom Exhibition Build', 'Fabrication', 'Modular kiosk design and custom metal fabrication.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg" loading="lazy" alt="Fabrication project" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('Custom Exhibition Build', 'Fabrication', 'Modular kiosk design and custom metal fabrication.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg" loading="lazy" width="400" height="400" alt="Fabrication project" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-yellow border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Structural Kiosk', 'Fabrication', 'Complete start-to-finish fabrication.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg" loading="lazy" alt="Structural Kiosk" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('Structural Kiosk', 'Fabrication', 'Complete start-to-finish fabrication.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg" loading="lazy" width="400" height="400" alt="Structural Kiosk" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-cyan border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Brand Activation Space', 'BTL Activities', 'High footfall mall activation setup.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="btl">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg" loading="lazy" alt="Brand Activation" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('Brand Activation Space', 'BTL Activities', 'High footfall mall activation setup.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="btl">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg" loading="lazy" width="400" height="400" alt="Brand Activation" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-pink border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform text-white">
                             <span class="text-xs font-mono font-black uppercase">BTL Activities</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-white stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Retail Merchandising Display', 'Marketing', 'Custom point-of-sale material developed for retail.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="marketing">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg" loading="lazy" alt="Retail Merchandising" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('Retail Merchandising Display', 'Marketing', 'Custom point-of-sale material developed for retail.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="marketing">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg" loading="lazy" width="400" height="400" alt="Retail Merchandising" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-green border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Marketing</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Bespoke Booth', 'Fabrication', 'Custom built architectural stall.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg" loading="lazy" alt="Fabrication" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('Bespoke Booth', 'Fabrication', 'Custom built architectural stall.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg" loading="lazy" width="400" height="400" alt="Fabrication" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-orange border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform text-white">
                             <span class="text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-white stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Live Roadshow', 'BTL Activities', 'Mobile on-ground event execution.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="btl">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg" loading="lazy" alt="BTL" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('Live Roadshow', 'BTL Activities', 'Mobile on-ground event execution.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="btl">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg" loading="lazy" width="400" height="400" alt="BTL" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-yellow border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">BTL Activities</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Expo Stall', 'Fabrication', 'Premium corporate event fabrication.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img294/831332465.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img294/831332465.jpg" loading="lazy" alt="Fabrication" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('Expo Stall', 'Fabrication', 'Premium corporate event fabrication.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img294/831332465.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img294/831332465.jpg" loading="lazy" width="400" height="400" alt="Fabrication" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-cyan border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('POS Fixtures', 'Marketing', 'Supermarket retail aisle activation.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img250/1281826137.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="marketing">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img250/1281826137.jpg" loading="lazy" alt="Marketing" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
+                    <button type="button" onclick="openPortfolioDetail('POS Fixtures', 'Marketing', 'Supermarket retail aisle activation.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img250/1281826137.jpg')" class="portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="marketing">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img250/1281826137.jpg" loading="lazy" width="400" height="400" alt="Marketing" class="w-full h-full object-cover group-hover:opacity-80 transition-opacity">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-pink border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform text-white">
                             <span class="text-xs font-mono font-black uppercase">Marketing</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-white stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
                     <!-- Extra Items (Hidden initially) -->
-                    <div onclick="openPortfolioDetail('Custom Fabrication', 'Fabrication', 'Detailed wood and metal joinery.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img293/2712598099.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img293/2712598099.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Custom Fabrication', 'Fabrication', 'Detailed wood and metal joinery.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img293/2712598099.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img293/2712598099.jpg" loading="lazy" width="400" height="400" alt="Fabrication Detailed" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-green border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Outdoor Activation', 'BTL Activities', 'Open-air brand engagement setup.', 'https://brandpuller.com/wp-content/uploads/2021/09/img259.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="btl">
-                        <img src="https://brandpuller.com/wp-content/uploads/2021/09/img259.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Outdoor Activation', 'BTL Activities', 'Open-air brand engagement setup.', 'https://brandpuller.com/wp-content/uploads/2021/09/img259.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="btl">
+                        <img src="https://brandpuller.com/wp-content/uploads/2021/09/img259.jpg" loading="lazy" width="400" height="400" alt="Outdoor Activation" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-yellow border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">BTL Activities</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Stall Design', 'Fabrication', 'Corporate environment design.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img287/2401111887.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img287/2401111887.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Stall Design', 'Fabrication', 'Corporate environment design.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img287/2401111887.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img287/2401111887.jpg" loading="lazy" width="400" height="400" alt="Stall Design" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-cyan border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Modular Setup', 'Fabrication', 'Quick deployable architecture.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img278/4056766816.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img278/4056766816.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Modular Setup', 'Fabrication', 'Quick deployable architecture.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img278/4056766816.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img278/4056766816.jpg" loading="lazy" width="400" height="400" alt="Modular Setup" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-orange border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform text-white">
                             <span class="text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-white stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img285/698296948.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img285/698296948.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img285/698296948.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img285/698296948.jpg" loading="lazy" width="400" height="400" alt="Event Architecture" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-pink border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform text-white">
                             <span class="text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-white stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
                     
-                    <div onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img284/2439990758.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img284/2439990758.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img284/2439990758.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img284/2439990758.jpg" loading="lazy" width="400" height="400" alt="Event Architecture 2" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-yellow border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img279/1328892125.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img279/1328892125.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img279/1328892125.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img279/1328892125.jpg" loading="lazy" width="400" height="400" alt="Event Architecture 3" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-green border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
-                    <div onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img292/1248053843.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
-                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img292/1248053843.jpg" loading="lazy" class="w-full h-full object-cover">
+                    <button type="button" onclick="openPortfolioDetail('Event Architecture', 'Fabrication', 'Premium built stalls.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img292/1248053843.jpg')" class="portfolio-item hidden extra-portfolio-item relative aspect-square overflow-hidden border-4 border-black shadow-brutal group cursor-pointer bg-black" data-cat="fabrication">
+                        <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img292/1248053843.jpg" loading="lazy" width="400" height="400" alt="Event Architecture 4" class="w-full h-full object-cover">
                         <div class="absolute inset-x-0 bottom-0 bg-brutal-cyan border-t-4 border-black p-3 flex justify-between items-center transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <span class="text-black text-xs font-mono font-black uppercase">Fabrication</span>
                             <i data-lucide="zoom-in" class="w-5 h-5 text-black stroke-[3]"></i>
                         </div>
-                    </div>
+                    </button>
 
                 </div>
 
                 <div class="mt-10 text-center reveal-up" data-reveal>
-                    <button id="toggleMoreImagesBtn" onclick="toggleMoreImages()" class="btn-brutal bg-brutal-yellow text-black hover:bg-brutal-orange hover:text-white px-8 py-4 font-display font-black text-xs tracking-widest min-touch-target">
+                    <button type="button" id="toggleMoreImagesBtn" onclick="toggleMoreImages()" class="btn-brutal bg-brutal-yellow text-black hover:bg-brutal-orange hover:text-white px-8 py-4 font-display font-black text-xs tracking-widest min-touch-target">
                         <span id="moreImagesBtnText">More Images</span>
                         <i data-lucide="chevron-down" id="moreImagesChevron" class="w-4 h-4 stroke-[3] inline-block ml-2"></i>
                     </button>
@@ -676,78 +678,79 @@
             </div>
 
             <div class="marquee-container relative w-full pb-6">
-                <div class="marquee-wrapper">
+                <!-- Added items-stretch here to force unified card heights -->
+                <div class="marquee-wrapper items-stretch">
                     <!-- Cards Batch 1 Brutal -->
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-orange mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"Brand Puller managed our mall activation flawlessly. The structural integrity of the booth and the punctuality of the installation team in Karachi was highly commendable."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"Brand Puller managed our mall activation flawlessly. The structural integrity of the booth and the punctuality of the installation team in Karachi was highly commendable."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">FMCG Enterprise</p>
                             <p class="text-xs bg-brutal-yellow inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">Brand Activation</p>
                         </div>
                     </div>
 
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-pink mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"Our custom exhibition stall stood out completely. Their CAD rendering matched the on-ground reality 100%, and the team's professional approach made the process stress-free."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"Our custom exhibition stall stood out completely. Their CAD rendering matched the on-ground reality 100%, and the team's professional approach made the process stress-free."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">Marketing Head</p>
                             <p class="text-xs bg-brutal-cyan inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">Tech &amp; Electronics</p>
                         </div>
                     </div>
 
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-green mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"We rely on Brand Puller for our retail merchandising and POS materials. Economical solutions without compromising on the quality of raw materials used."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"We rely on Brand Puller for our retail merchandising and POS materials. Economical solutions without compromising on the quality of raw materials used."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">Brand Director</p>
                             <p class="text-xs bg-brutal-green inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">National Retail Chain</p>
                         </div>
                     </div>
 
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-orange mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"Exceptional turn-around time on complex metal fabrication structures. Their team worked overnight to deliver a flawless experience for our expo booth."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"Exceptional turn-around time on complex metal fabrication structures. Their team worked overnight to deliver a flawless experience for our expo booth."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">Lead Event Manager</p>
                             <p class="text-xs bg-brutal-yellow inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">Corporate Expo</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="marquee-wrapper" aria-hidden="true">
+                <div class="marquee-wrapper items-stretch" aria-hidden="true">
                     <!-- Cards Batch 2 Brutal (Duplicate) -->
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-orange mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"Brand Puller managed our mall activation flawlessly. The structural integrity of the booth and the punctuality of the installation team in Karachi was highly commendable."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"Brand Puller managed our mall activation flawlessly. The structural integrity of the booth and the punctuality of the installation team in Karachi was highly commendable."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">FMCG Enterprise</p>
                             <p class="text-xs bg-brutal-yellow inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">Brand Activation</p>
                         </div>
                     </div>
 
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-pink mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"Our custom exhibition stall stood out completely. Their CAD rendering matched the on-ground reality 100%, and the team's professional approach made the process stress-free."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"Our custom exhibition stall stood out completely. Their CAD rendering matched the on-ground reality 100%, and the team's professional approach made the process stress-free."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">Marketing Head</p>
                             <p class="text-xs bg-brutal-cyan inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">Tech &amp; Electronics</p>
                         </div>
                     </div>
 
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-green mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"We rely on Brand Puller for our retail merchandising and POS materials. Economical solutions without compromising on the quality of raw materials used."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"We rely on Brand Puller for our retail merchandising and POS materials. Economical solutions without compromising on the quality of raw materials used."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">Brand Director</p>
                             <p class="text-xs bg-brutal-green inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">National Retail Chain</p>
                         </div>
                     </div>
 
-                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative">
+                    <div class="w-[320px] sm:w-[400px] p-8 bg-white text-black border-4 border-black shadow-brutal-white-lg flex-shrink-0 relative flex flex-col h-full">
                         <i data-lucide="quote" class="w-10 h-10 text-brutal-orange mb-4 stroke-[3]"></i>
-                        <p class="text-black text-base font-bold leading-relaxed mb-6">"Exceptional turn-around time on complex metal fabrication structures. Their team worked overnight to deliver a flawless experience for our expo booth."</p>
-                        <div class="border-t-3 border-black pt-4">
+                        <p class="text-black text-base font-bold leading-relaxed mb-6 flex-grow">"Exceptional turn-around time on complex metal fabrication structures. Their team worked overnight to deliver a flawless experience for our expo booth."</p>
+                        <div class="border-t-3 border-black pt-4 mt-auto">
                             <p class="font-display font-black text-lg text-black uppercase">Lead Event Manager</p>
                             <p class="text-xs bg-brutal-yellow inline-block px-2 py-0.5 border border-black font-mono font-black uppercase">Corporate Expo</p>
                         </div>
@@ -760,7 +763,7 @@
         <section id="contact" class="min-h-[85vh] flex flex-col justify-between pt-16 pb-6 bg-brutal-yellow text-black relative overflow-hidden border-t-4 border-black brutal-grid">
             <div class="w-full px-6 md:px-12 lg:px-16 relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto">
                 <div class="mb-12 reveal-up" data-reveal>
-                    <button onclick="openLeadModal()" class="group font-display font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-none bg-black text-white hover:bg-brutal-orange hover:text-white p-6 border-4 border-black shadow-brutal-lg flex items-center justify-between w-full min-touch-target transition-all">
+                    <button type="button" onclick="openLeadModal()" class="group font-display font-black text-5xl sm:text-7xl lg:text-8xl tracking-tight leading-none bg-black text-white hover:bg-brutal-orange hover:text-white p-6 border-4 border-black shadow-brutal-lg flex items-center justify-between w-full min-touch-target transition-all">
                         <span>START A PROJECT</span>
                         <i data-lucide="arrow-up-right" class="w-12 h-12 sm:w-20 sm:h-20 text-brutal-yellow group-hover:text-white stroke-[3]"></i>
                     </button>
@@ -768,7 +771,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-8 border-t-4 border-black reveal-fade" data-reveal>
                     <div class="md:col-span-4 bg-white p-6 border-3 border-black shadow-brutal">
-                        <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller" class="h-8 w-auto mb-4">
+                        <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller" width="150" height="40" class="h-8 w-auto mb-4">
                         <h3 class="font-mono text-xs uppercase font-black bg-brutal-cyan inline-block px-2 py-0.5 border border-black mb-3">Karachi Office</h3>
                         <p class="text-sm font-bold leading-relaxed text-black">
                             R-442, Block 14,<br/>
@@ -828,8 +831,8 @@
                 <div class="pt-4 border-t-4 border-black flex flex-col sm:flex-row justify-between items-center text-xs font-mono font-black text-black gap-3 bg-white p-4 border-3">
                     <p>&copy; <span id="currentYear"></span> BRAND PULLER (PRIVATE) LIMITED. ALL RIGHTS RESERVED.</p>
                     <div class="flex gap-4">
-                        <button onclick="openLegalModal('privacy')" class="underline hover:bg-brutal-yellow px-1">PRIVACY POLICY</button>
-                        <button onclick="openLegalModal('terms')" class="underline hover:bg-brutal-yellow px-1">TERMS &amp; CONDITIONS</button>
+                        <button type="button" onclick="openLegalModal('privacy')" class="underline hover:bg-brutal-yellow px-1">PRIVACY POLICY</button>
+                        <button type="button" onclick="openLegalModal('terms')" class="underline hover:bg-brutal-yellow px-1">TERMS &amp; CONDITIONS</button>
                     </div>
                 </div>
             </div>
@@ -839,7 +842,7 @@
     <!-- LEAD MODAL BRUTAL -->
     <div id="leadModalOverlay" class="fixed inset-0 bg-black/80 z-[100] hidden modal-overlay opacity-0 flex items-center justify-center p-4">
         <div id="leadModalPanel" class="bg-white border-4 border-black w-full max-w-2xl shadow-brutal-xl relative overflow-y-auto max-h-[90vh] modal-panel scale-95 opacity-0 transition-all">
-            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-black bg-brutal-yellow border-2 border-black p-2 font-black shadow-brutal-sm hover:bg-brutal-orange hover:text-white transition-colors z-20 min-touch-target" aria-label="Close modal">
+            <button type="button" onclick="closeLeadModal()" class="absolute top-4 right-4 text-black bg-brutal-yellow border-2 border-black p-2 font-black shadow-brutal-sm hover:bg-brutal-orange hover:text-white transition-colors z-20 min-touch-target" aria-label="Close modal">
                 <i data-lucide="x" class="w-6 h-6 stroke-[3]"></i>
             </button>
             <div class="p-6 md:p-8 relative">
@@ -896,7 +899,7 @@
                     </div>
                     <h3 class="font-display font-black text-3xl text-black uppercase mb-4">Inquiry Received.</h3>
                     <p class="text-black font-bold mb-8 max-w-sm mx-auto">Thank you for reaching out. Our project management team will review your brief and contact you shortly.</p>
-                    <button onclick="closeLeadModal()" class="btn-brutal bg-brutal-yellow text-black px-8 py-3 text-xs min-touch-target">
+                    <button type="button" onclick="closeLeadModal()" class="btn-brutal bg-brutal-yellow text-black px-8 py-3 text-xs min-touch-target">
                         Close Window
                     </button>
                 </div>
@@ -907,11 +910,11 @@
     <!-- PORTFOLIO MODAL BRUTAL -->
     <div id="portfolioModalOverlay" class="fixed inset-0 bg-black/90 z-[100] hidden modal-overlay opacity-0 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
         <div id="portfolioModalPanel" class="bg-white border-4 border-black w-full max-w-5xl shadow-brutal-xl relative modal-panel scale-95 opacity-0 my-auto flex flex-col md:flex-row overflow-hidden">
-            <button onclick="closePortfolioModal()" class="absolute top-4 right-4 text-black bg-brutal-yellow border-2 border-black p-2 font-black shadow-brutal-sm hover:bg-brutal-orange hover:text-white transition-colors z-20 min-touch-target" aria-label="Close modal">
+            <button type="button" onclick="closePortfolioModal()" class="absolute top-4 right-4 text-black bg-brutal-yellow border-2 border-black p-2 font-black shadow-brutal-sm hover:bg-brutal-orange hover:text-white transition-colors z-20 min-touch-target" aria-label="Close modal">
                 <i data-lucide="x" class="w-6 h-6 stroke-[3]"></i>
             </button>
             <div class="w-full md:w-3/5 bg-black relative min-h-[300px] md:min-h-[500px] flex items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-black">
-                <img id="pdImage" src="" alt="Project Image" class="w-full h-full object-contain max-h-[70vh]">
+                <img id="pdImage" src="" alt="Project Detail Image" class="w-full h-full object-contain max-h-[70vh]">
             </div>
             <div class="w-full md:w-2/5 p-8 flex flex-col justify-center bg-brutal-bg">
                 <span id="pdCat" class="bg-brutal-cyan text-black font-mono text-xs font-black uppercase px-2 py-1 border border-black inline-block w-max mb-3">Category</span>
@@ -920,7 +923,7 @@
                     Project description goes here.
                 </p>
                 <div class="mt-auto pt-6 border-t-4 border-black">
-                    <button onclick="closePortfolioModal(); openLeadModal();" class="w-full btn-brutal bg-brutal-orange text-white px-6 py-3.5 text-xs tracking-wider text-center min-touch-target">
+                    <button type="button" onclick="closePortfolioModal(); openLeadModal();" class="w-full btn-brutal bg-brutal-orange text-white px-6 py-3.5 text-xs tracking-wider text-center min-touch-target">
                         Request Similar Build
                     </button>
                 </div>
@@ -933,7 +936,7 @@
         <div id="legalModalPanel" class="bg-white border-4 border-black w-full max-w-3xl max-h-[80vh] shadow-brutal-xl relative flex flex-col modal-panel scale-95 opacity-0">
             <div class="p-6 border-b-4 border-black bg-brutal-yellow flex justify-between items-center">
                 <h3 id="legalTitle" class="font-display font-black text-2xl text-black uppercase">Legal Document</h3>
-                <button onclick="closeLegalModal()" class="bg-white border-2 border-black p-2 font-black shadow-brutal-sm hover:bg-black hover:text-white transition-colors min-touch-target" aria-label="Close modal">
+                <button type="button" onclick="closeLegalModal()" class="bg-white border-2 border-black p-2 font-black shadow-brutal-sm hover:bg-black hover:text-white transition-colors min-touch-target" aria-label="Close modal">
                     <i data-lucide="x" class="w-6 h-6 stroke-[3]"></i>
                 </button>
             </div>

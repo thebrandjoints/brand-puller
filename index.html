@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand Puller | Exhibition Stand Fabrication, BTL Activations & Retail Execution</title>
-    <meta name="description" content="Brand Puller (Private) Limited — Karachi-based structural fabrication, exhibition stall design, BTL activations, and retail marketing execution agency, established 2011.">
+    <meta name="description" content="Brand Puller (Private) Limited Karachi-based structural fabrication, exhibition stall design, BTL activations, and retail marketing execution agency, established 2011.">
     <meta name="theme-color" content="#0D0D0D">
 
     <!-- Open Graph Meta Tags -->
@@ -104,6 +104,33 @@
             font-size: clamp(2.5rem, 7vw, 6.5rem);
             line-height: 0.92;
         }
+
+
+
+        .process-step { transition: transform .3s ease; }
+        .process-step:hover { transform: translateY(-6px); }
+        .process-step .step-kicker { transition: color .3s ease; }
+        .process-step:hover .step-kicker { color: #ED1C24; }
+
+        /* Editorial portfolio rhythm */
+        .portfolio-grid .portfolio-item { aspect-ratio: 4 / 3; }
+        @media (min-width: 1024px) {
+            .portfolio-grid .portfolio-item:nth-child(1) { grid-column: span 7; aspect-ratio: 16 / 10; }
+            .portfolio-grid .portfolio-item:nth-child(2) { grid-column: span 5; aspect-ratio: 4 / 3; }
+            .portfolio-grid .portfolio-item:nth-child(3) { grid-column: span 5; aspect-ratio: 4 / 3; }
+            .portfolio-grid .portfolio-item:nth-child(4) { grid-column: span 7; aspect-ratio: 16 / 10; }
+            .portfolio-grid .portfolio-item:nth-child(5) { grid-column: span 6; aspect-ratio: 16 / 10; }
+            .portfolio-grid .portfolio-item:nth-child(6) { grid-column: span 6; aspect-ratio: 16 / 10; }
+        }
+        .portfolio-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(13,13,13,.08);
+            pointer-events: none;
+            transition: border-color .3s ease;
+        }
+        .portfolio-item:hover::after { border-color: rgba(237,28,36,.55); }
 
         /* Touch Devices Full Color Images */
         @media (pointer: coarse) {
@@ -254,7 +281,7 @@
     <main class="pt-20">
 
         <!-- 01. HERO SECTION -->
-        <section class="relative min-h-[85vh] w-full flex items-center py-8 sm:py-16 bg-brand-bg border-b border-brand-grayBorder overflow-hidden" aria-label="Introduction">
+        <section class="relative min-h-[calc(100svh-5rem)] w-full flex items-center py-10 sm:py-12 lg:py-16 bg-brand-bg border-b border-brand-grayBorder overflow-hidden" aria-label="Introduction">
             
             <!-- Grid Pattern Overlay -->
             <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" aria-hidden="true"></div>
@@ -263,9 +290,9 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     
                     <!-- Left Hero Content -->
-                    <div class="lg:col-span-7">
-                        <div class="inline-flex items-center gap-2 bg-white/40 backdrop-blur-sm border border-brand-grayBorder/50 px-3.5 py-1.5 rounded-full mb-6 text-brand-black font-extrabold text-[11px] uppercase tracking-[0.2em] shadow-sm">
-                            Brand Puller — Established 2011
+                    <div class="lg:col-span-7 lg:-translate-y-8 xl:-translate-y-10">
+                        <div class="hero-content-label inline-flex items-center gap-2 bg-white/40 backdrop-blur-sm border border-brand-grayBorder/50 px-3.5 py-1.5 rounded-full mb-6 text-brand-black font-extrabold text-[11px] uppercase tracking-[0.2em] shadow-sm">
+                            Brand Puller Established 2011
                         </div>
 
                         <h1 class="hero-title font-display font-black text-brand-black tracking-tighter uppercase mb-6">
@@ -273,7 +300,7 @@
                         </h1>
 
                         <p class="text-brand-slate text-base sm:text-lg font-semibold leading-relaxed max-w-2xl mb-8">
-                            Since 2011, Brand Puller has engineered high-concept spatial visual identity across Pakistan — specializing in structural exhibition booths, high-footfall BTL activations, and durable retail execution.
+                            Since 2011, Brand Puller has engineered high-concept spatial visual identity across Pakistan specializing in structural exhibition booths, high-footfall BTL activations, and durable retail execution.
                         </p>
 
                         <!-- Hero CTAs -->
@@ -463,15 +490,15 @@
                 </div>
 
                 <!-- Editorial Grid Layout -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-brand-grayBorder border border-brand-grayBorder touch-full-color" id="portfolioGrid">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-px bg-brand-grayBorder border border-brand-grayBorder touch-full-color portfolio-grid" id="portfolioGrid">
                     
                     <!-- Item 1: Fabrication -->
                     <button type="button" 
                             onclick="openPortfolioModal('Custom Exhibition Booth', 'Fabrication', 'Modular kiosk design and custom metal fabrication executed with precision joinery.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg')"
                             data-cat="fabrication" 
-                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                            class="portfolio-item relative overflow-hidden bg-white text-left group min-h-[280px]">
                         <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img148-1/869973159.jpg" loading="lazy" alt="Custom exhibition stall build" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                             <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Fabrication</span>
                             <span class="font-display font-extrabold text-xl">Custom Exhibition Booth</span>
                         </div>
@@ -481,9 +508,9 @@
                     <button type="button" 
                             onclick="openPortfolioModal('Structural Kiosk', 'Fabrication', 'Complete start-to-finish fabrication focused on high-traffic durability.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg')"
                             data-cat="fabrication" 
-                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                            class="portfolio-item relative overflow-hidden bg-white text-left group min-h-[280px]">
                         <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img182/2847647189.jpg" loading="lazy" alt="Structural kiosk installation" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                             <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Fabrication</span>
                             <span class="font-display font-extrabold text-xl">Structural Kiosk</span>
                         </div>
@@ -493,9 +520,9 @@
                     <button type="button" 
                             onclick="openPortfolioModal('Brand Activation Space', 'BTL Activations', 'High footfall mall activation setup designed for maximum spatial flow.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg')"
                             data-cat="btl" 
-                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                            class="portfolio-item relative overflow-hidden bg-white text-left group min-h-[280px]">
                         <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img216/3690244492.jpg" loading="lazy" alt="Mall BTL activation booth" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                             <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">BTL Activations</span>
                             <span class="font-display font-extrabold text-xl">Activation Space</span>
                         </div>
@@ -505,9 +532,9 @@
                     <button type="button" 
                             onclick="openPortfolioModal('Retail Merchandising Display', 'Retail Marketing', 'Custom point-of-sale material developed for retail chains.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg')"
                             data-cat="marketing" 
-                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                            class="portfolio-item relative overflow-hidden bg-white text-left group min-h-[280px]">
                         <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img167/1376352076.jpg" loading="lazy" alt="Retail display merchandising fixture" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                             <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Retail Marketing</span>
                             <span class="font-display font-extrabold text-xl">Merchandising Display</span>
                         </div>
@@ -517,9 +544,9 @@
                     <button type="button" 
                             onclick="openPortfolioModal('Bespoke Architectural Booth', 'Fabrication', 'Custom built architectural stall balancing aesthetics with material economy.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg')"
                             data-cat="fabrication" 
-                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                            class="portfolio-item relative overflow-hidden bg-white text-left group min-h-[280px]">
                         <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img299/3738325676.jpg" loading="lazy" alt="Bespoke exhibition booth" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                             <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">Fabrication</span>
                             <span class="font-display font-extrabold text-xl">Bespoke Booth</span>
                         </div>
@@ -529,9 +556,9 @@
                     <button type="button" 
                             onclick="openPortfolioModal('Live Roadshow Setup', 'BTL Activations', 'Mobile on-ground event execution requiring rapid deployment.', 'https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg')"
                             data-cat="btl" 
-                            class="portfolio-item relative aspect-square overflow-hidden bg-white text-left group min-h-[280px]">
+                            class="portfolio-item relative overflow-hidden bg-white text-left group min-h-[280px]">
                         <img src="https://brandpuller.com/wp-content/uploads/cache/2021/09/img257/1916863558.jpg" loading="lazy" alt="Roadshow activation rig" class="w-full h-full object-cover grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-500">
-                        <div class="absolute inset-0 bg-brand-black/80 opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+                        <div class="absolute inset-0 bg-brand-black/80 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                             <span class="text-brand-red text-xs uppercase font-extrabold tracking-widest mb-1">BTL Activations</span>
                             <span class="font-display font-extrabold text-xl">Live Roadshow</span>
                         </div>
@@ -547,7 +574,7 @@
                 
                 <div class="mb-16 text-center max-w-3xl mx-auto">
                     <span class="text-brand-red font-extrabold text-xs tracking-[0.2em] uppercase mb-3 block">Structured Operations</span>
-                    <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight">From Concept to Installation</h2>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-brand-black tracking-tight">From Brief to Installation</h2>
                 </div>
 
                 <!-- Redesigned Stepper / Timeline Layout -->
@@ -558,31 +585,31 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-6">
                         
-                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                        <div class="process-step relative z-10 flex flex-col md:items-center text-left md:text-center group">
                             <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">1</div>
                             <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Understand</h3>
                             <p class="text-brand-slate text-sm font-semibold leading-relaxed">Client brief analysis, spatial parameters, site constraints, and structural goals.</p>
                         </div>
 
-                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                        <div class="process-step relative z-10 flex flex-col md:items-center text-left md:text-center group">
                             <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">2</div>
                             <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Design</h3>
                             <p class="text-brand-slate text-sm font-semibold leading-relaxed">Concept development, spatial mapping, and accurate 3D CAD visualization.</p>
                         </div>
 
-                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                        <div class="process-step relative z-10 flex flex-col md:items-center text-left md:text-center group">
                             <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">3</div>
                             <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Engineer</h3>
                             <p class="text-brand-slate text-sm font-semibold leading-relaxed">Material selection, joinery mechanics, load calculations, and production planning.</p>
                         </div>
 
-                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                        <div class="process-step relative z-10 flex flex-col md:items-center text-left md:text-center group">
                             <div class="w-16 h-16 rounded-full bg-white text-brand-black flex items-center justify-center font-display font-black text-2xl mb-6 shadow-sm border-2 border-brand-grayBorder md:mx-auto group-hover:border-brand-red group-hover:text-brand-red transition-colors duration-300">4</div>
                             <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Build</h3>
                             <p class="text-brand-slate text-sm font-semibold leading-relaxed">In-house workshop fabrication, CNC cutting, welding, joinery, and finishing.</p>
                         </div>
 
-                        <div class="relative z-10 flex flex-col md:items-center text-left md:text-center group">
+                        <div class="process-step relative z-10 flex flex-col md:items-center text-left md:text-center group">
                             <div class="w-16 h-16 rounded-full bg-brand-black text-white flex items-center justify-center font-display font-black text-2xl mb-6 shadow-xl border-2 border-brand-black md:mx-auto group-hover:bg-brand-red group-hover:border-brand-red transition-colors duration-300">5</div>
                             <h3 class="font-display font-extrabold text-lg text-brand-black mb-3">Install</h3>
                             <p class="text-brand-slate text-sm font-semibold leading-relaxed">On-site logistics deployment, assembly, electrical wiring, and pre-event readiness.</p>
@@ -767,11 +794,11 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label for="c_name" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Full Name *</label>
-                                    <input type="text" id="c_name" name="name" autocomplete="name" required class="form-input-field" placeholder="e.g. Saad Sheikh">
+                                    <input type="text" id="c_name" name="name" autocomplete="name" required class="form-input-field" placeholder="e.g. Abdul Jabbar">
                                 </div>
                                 <div>
                                     <label for="c_company" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-2">Company / Organization</label>
-                                    <input type="text" id="c_company" name="organization" autocomplete="organization" class="form-input-field" placeholder="e.g. Saad Atelier">
+                                    <input type="text" id="c_company" name="organization" autocomplete="organization" class="form-input-field" placeholder="e.g. Brand Puller">
                                 </div>
                             </div>
 
@@ -826,7 +853,7 @@
                 <div class="md:col-span-4">
                     <img src="https://brandpuller.com/wp-content/uploads/2021/09/logonew.png" alt="Brand Puller logo" width="160" height="42" class="h-7 w-auto mb-6 invert">
                     <p class="text-xs font-semibold text-slate-400 leading-relaxed max-w-sm mb-6">
-                        Brand Puller (Private) Limited — Karachi-based structural fabrication, BTL activations, and retail marketing agency established in 2011.
+                        Brand Puller (Private) Limited Karachi-based structural fabrication, BTL activations, and retail marketing agency established in 2011.
                     </p>
                     <p class="text-xs font-bold text-slate-300">
                         <a href="https://www.google.com/maps/dir/?api=1&destination=R-442,+Block+14,+F.B.+Area,+Karachi,+Pakistan" target="_blank" rel="noopener noreferrer" class="hover:text-brand-red transition-colors">
@@ -872,6 +899,14 @@
                     </div>
                 </div>
 
+            </div>
+
+            <!-- Large Brand Sign-Off -->
+            <div class="py-14 sm:py-20 border-b border-white/10 overflow-hidden">
+                <p class="text-[11px] font-extrabold uppercase tracking-[0.25em] text-brand-red mb-4">Built for the physical world</p>
+                <div class="font-display font-black uppercase tracking-[-0.07em] leading-[0.78] text-[clamp(4.5rem,15vw,13rem)] text-white/95 select-none" aria-hidden="true">
+                    BRAND<br><span class="text-brand-red">PULLER</span>
+                </div>
             </div>
 
             <!-- Footer Bottom Row -->
@@ -921,7 +956,7 @@
                     </div>
                     <div>
                         <label for="m_details" class="block text-xs font-extrabold uppercase tracking-wider text-brand-black mb-1">Project Details *</label>
-                        <textarea id="m_details" rows="3" required class="form-input-field resize-none" placeholder="Dimensions, scope, venue location..."></textarea>
+                        <textarea id="m_details" name="message" rows="3" required class="form-input-field resize-none" placeholder="Dimensions, scope, venue location..."></textarea>
                     </div>
 
                     <div id="modalStatusMessage" class="hidden p-3 text-xs font-bold rounded-sm"></div>
@@ -995,14 +1030,8 @@
             smoothWheel: true,
         });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-        
-        // Prevent GSAP conflict with Lenis scroll
-        gsap.ticker.add((time) => { lenis.raf(time * 1000) });
+        // Use one animation clock only. GSAP drives Lenis to avoid duplicate RAF work.
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
         gsap.ticker.lagSmoothing(0);
 
         // 2. Global State & Focus Trap Control
@@ -1012,25 +1041,36 @@
             lastFocusedElement: null
         };
 
-        function trapFocus(element) {
-            const focusableEls = element.querySelectorAll('a[href], button:not([disabled]), textarea, input, select');
-            const firstFocusableEl = focusableEls[0];  
-            const lastFocusableEl = focusableEls[focusableEls.length - 1];
+        let activeFocusTrap = null;
 
-            element.addEventListener('keydown', function(e) {
+        function trapFocus(element) {
+            if (activeFocusTrap) activeFocusTrap();
+
+            const handler = (e) => {
                 if (e.key !== 'Tab') return;
-                if (e.shiftKey) {
-                    if (document.activeElement === firstFocusableEl) {
-                        lastFocusableEl.focus();
-                        e.preventDefault();
-                    }
-                } else {
-                    if (document.activeElement === lastFocusableEl) {
-                        firstFocusableEl.focus();
-                        e.preventDefault();
-                    }
+                const focusableEls = [...element.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])')];
+                if (!focusableEls.length) return;
+                const first = focusableEls[0];
+                const last = focusableEls[focusableEls.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
                 }
-            });
+            };
+
+            element.addEventListener('keydown', handler);
+            activeFocusTrap = () => {
+                element.removeEventListener('keydown', handler);
+                activeFocusTrap = null;
+            };
+        }
+
+        function releaseFocusTrap() {
+            if (activeFocusTrap) activeFocusTrap();
         }
 
         // 3. Navigation System (Header & Mobile Menu)
@@ -1043,11 +1083,12 @@
 
         lenis.on('scroll', ({ scroll }) => {
             if (state.mobileMenuOpen || Object.values(state.modalsOpen).some(v => v)) return;
-            if (scroll > lastScroll && scroll > 80) {
+            if (scroll > lastScroll && scroll > 120) {
                 header.classList.add('-translate-y-full'); // Hide on scroll down
             } else {
                 header.classList.remove('-translate-y-full'); // Show on scroll up
             }
+            if (scroll <= 20) header.classList.remove('-translate-y-full');
             lastScroll = scroll;
         });
 
@@ -1061,12 +1102,12 @@
                 mobileNavMenu.classList.remove('hidden');
                 mobileMenuIcon.setAttribute('data-lucide', 'x');
                 lucide.createIcons();
-                lenis.stop();
+                updateScrollLock();
             } else {
                 mobileNavMenu.classList.add('hidden');
                 mobileMenuIcon.setAttribute('data-lucide', 'menu');
                 lucide.createIcons();
-                lenis.start();
+                updateScrollLock();
             }
         }
 
@@ -1074,9 +1115,25 @@
             if (state.mobileMenuOpen) toggleMobileMenu();
         }
 
+        document.addEventListener('click', (e) => {
+            if (!state.mobileMenuOpen) return;
+            if (!mobileNavMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) closeMobileMenu();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && state.mobileMenuOpen) closeMobileMenu();
+        });
+
         // 4. Modal System (Lead, Portfolio, Legal)
-        function toggleModalScroll(disable) {
-            disable ? lenis.stop() : lenis.start();
+        function updateScrollLock() {
+            const modalOpen = Object.values(state.modalsOpen).some(Boolean);
+            if (state.mobileMenuOpen || modalOpen) {
+                lenis.stop();
+                document.body.classList.add('overflow-hidden');
+            } else {
+                lenis.start();
+                document.body.classList.remove('overflow-hidden');
+            }
         }
 
         function openLeadModal(source = 'Unknown') {
@@ -1084,8 +1141,8 @@
             state.lastFocusedElement = document.activeElement;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            toggleModalScroll(true);
             state.modalsOpen.lead = true;
+            updateScrollLock();
             document.getElementById('m_name').focus();
             trapFocus(modal);
         }
@@ -1094,8 +1151,9 @@
             const modal = document.getElementById('leadModalOverlay');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            toggleModalScroll(false);
             state.modalsOpen.lead = false;
+            releaseFocusTrap();
+            updateScrollLock();
             if (state.lastFocusedElement) state.lastFocusedElement.focus();
         }
 
@@ -1109,8 +1167,8 @@
             state.lastFocusedElement = document.activeElement;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            toggleModalScroll(true);
             state.modalsOpen.portfolio = true;
+            updateScrollLock();
             trapFocus(modal);
         }
 
@@ -1118,8 +1176,9 @@
             const modal = document.getElementById('portfolioModalOverlay');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            toggleModalScroll(false);
             state.modalsOpen.portfolio = false;
+            releaseFocusTrap();
+            updateScrollLock();
             if (state.lastFocusedElement) state.lastFocusedElement.focus();
         }
 
@@ -1139,8 +1198,8 @@
             state.lastFocusedElement = document.activeElement;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
-            toggleModalScroll(true);
             state.modalsOpen.legal = true;
+            updateScrollLock();
             trapFocus(modal);
         }
 
@@ -1148,8 +1207,9 @@
             const modal = document.getElementById('legalModalOverlay');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
-            toggleModalScroll(false);
             state.modalsOpen.legal = false;
+            releaseFocusTrap();
+            updateScrollLock();
             if (state.lastFocusedElement) state.lastFocusedElement.focus();
         }
 
@@ -1184,7 +1244,7 @@
             items.forEach(item => {
                 if (category === 'all' || item.dataset.cat === category) {
                     item.style.display = 'block';
-                    gsap.fromTo(item, { opacity: 1, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+                    gsap.fromTo(item, { opacity: 1, scale: 0.97, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: 'power2.out', clearProps: 'transform,opacity' });
                 } else {
                     item.style.display = 'none';
                 }
@@ -1235,6 +1295,7 @@
         if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
             
             // Hero Elements Fade Up
+            gsap.from(".hero-content-label", { opacity: 1, y: 16, duration: 0.5, ease: "power2.out" });
             gsap.from(".hero-title", { opacity: 1, y: 30, duration: 0.8, ease: "power3.out" });
             gsap.from(".hero-title + p", { opacity: 1, y: 20, duration: 0.8, delay: 0.2, ease: "power3.out" });
 
